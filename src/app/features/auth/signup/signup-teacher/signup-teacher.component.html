@@ -1,0 +1,234 @@
+<div class="form-wrapper">
+  <div class="form-background">
+    <div class="form-container">
+      <!-- Photo de profil -->
+      <div class="image-placeholder">
+        <img
+          src="https://img.freepik.com/free-photo/woman-holding-light-bulb-icons_53876-24889.jpg?t=st=1726783313~exp=1726786913~hmac=61943f18b9253d529123d7020c4781cb1d45b2d222f04d160ea82195ae42cc2c&w=740"
+          alt="Image Placeholder"
+        />
+      </div>
+
+      <!-- FORMULAIRE -->
+
+      <form class="signup-form">
+        <div class="form-title">Inscription Professeur</div>
+
+        <!-- LAST NAME -->
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="lastName"><i class="fas fa-user"></i> Nom:</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="registerprof.lastName" #lastName="ngModel" required
+              [ngClass]="{'is-valid': lastName.valid && lastName.touched,'is-invalid': lastName.invalid && lastName.touched }" />
+            <div
+              *ngIf=" lastName.invalid && lastName.touched" class="invalid-feedback" >
+              Last Name est requis.
+            </div>
+          </div>
+
+          <!-- FIRST NAME -->
+
+          <div class="form-group">
+            <label for="firstName"><i class="fas fa-user"></i> Prénom:</label>
+            <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="registerprof.firstName" #firstName="ngModel" required
+              [ngClass]="{'is-valid': firstName.valid && firstName.touched,'is-invalid':  firstName.invalid && firstName.touched }"/>
+            <div
+              *ngIf=" firstName.invalid && firstName.touched"class="invalid-feedback" >
+              First Name est requis.
+            </div>
+          </div>
+        </div>
+
+        <!-- EMAIL -->
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">
+              <i class="fas fa-envelope"></i> Adresse Email:</label>
+            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="registerprof.email" #email="ngModel" required
+              [ngClass]="{'is-valid':  email.valid && email.touched,'is-invalid': email.invalid && email.touched }" />
+            <div
+              *ngIf=" email.invalid && email.touched" class="invalid-feedback">
+              E-mail est requis.
+            </div>
+          </div>
+
+        <!-- PHONE -->
+
+          <div class="form-group">
+            <label for="phone" ><i class="fas fa-phone"></i> Numéro de téléphone:</label>
+            <input type="tel" class="form-control" id="phone" name="phone" [(ngModel)]="registerprof.phone" #phone="ngModel" required
+            [ngClass]="{'is-valid': phone.valid && phone.touched,'is-invalid':  phone.invalid && phone.touched }" />
+            <div
+              *ngIf=" phone.invalid && phone.touched" class="invalid-feedback">
+              Phone est requis.
+            </div>
+          </div>
+        </div>
+
+        <!-- PASSWORD -->
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="password"><i class="fas fa-lock"></i> Mot de passe:</label>
+            <input type="password" class="form-control" id="password" name="password" [(ngModel)]="registerprof.password" #password="ngModel" required minlength="6" pattern="" 
+            [ngClass]="{'is-valid': password.valid && password.touched,'is-invalid':  password.invalid && password.touched }" />
+            <div
+              *ngIf=" password.invalid && password.touched" class="invalid-feedback">
+              Password est requis.
+            </div>
+        </div>
+
+
+        <!--CONFIRM PASSWORD -->
+
+          <div class="form-group">
+            <label for="confirmPassword" ><i class="fas fa-lock"></i> Confirmation du mot de passe:</label>
+            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword"#confirmPassword="ngModel"required pattern="{{registerprof.password}}"
+            [ngClass]="{'is-valid': confirmPassword.valid && confirmPassword.touched,'is-invalid': confirmPassword.invalid && confirmPassword.touched }" />
+            <div
+              *ngIf="confirmPassword.invalid && confirmPassword.touched" class="invalid-feedback">
+              Confirm Password est requis.
+            </div>
+          </div>
+        </div>
+
+
+        <!-- VILLE -->
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="city"><i class="fas fa-city"></i> Ville:</label>
+            <input type="text" class="form-control" id="city" name="city"[(ngModel)]="registerprof.address" #city="ngModel"required
+            [ngClass]="{'is-valid': city.valid && city.touched,'is-invalid': city.invalid && city.touched }">
+            <div *ngIf=" city.invalid && city.touched" class="invalid-feedback">
+              City est requis.
+            </div>
+          </div>
+
+
+         <!-- BIOGRAPHIE  -->
+
+          <div class="form-group">
+            <label for="bio"><i class="fas fa-pencil-alt"></i> Biographie:</label>
+            <textarea id="bio" class="form-control" name="bio" [(ngModel)]="registerprof.biographie" #bio="ngModel" rows="4" required
+            [ngClass]="{'is-valid': bio.valid && bio.touched,'is-invalid':  bio.invalid && bio.touched }">
+            </textarea>
+            <div *ngIf=" bio.invalid && bio.touched" class="invalid-feedback">
+                Biographie est requis.
+              </div>
+          </div>
+        </div>
+  
+      <!--  PROFILE  PHOTO -->
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="profilePhoto"><i class="fas fa-camera"></i> Photo de profil:</label>
+            <input type="file" id="profilePhoto"(change)="onFileSelected($event)">
+          </div>
+        </div>
+
+        <!-- BUTTON INSCRIPTION -->
+
+        <button (click)="onSubmit()" class="validate-button" [disabled]="isLoading">
+          <span class="button-text">S'inscrire</span>
+          <div class="spinner" *ngIf="isLoading"></div>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Ligne 6: Réception des demandes -->
+        <!--  <div class="form-row">
+                    <div class="form-group">
+                        <label>Recevoir des demandes de session en ligne:</label>
+                        <label>
+                            <input type="radio" name="receiveRequests" [(ngModel)]="receiveRequests" value="yes"> Oui
+                        </label>
+                        <label>
+                            <input type="radio" name="receiveRequests" [(ngModel)]="receiveRequests" value="no"> Non
+                        </label>
+                    </div>
+                </div> -->
+
+        <!-- Ligne 7: Disponibilité (affiché uniquement si 'receiveRequests' est 'yes') -->
+        <!--  <div class="form-row" *ngIf="receiveRequests === 'yes'">
+                    <div class="form-group">
+                        <label>Disponibilité:</label>
+                        <div *ngFor="let day of days">
+                            <label>
+                                <input type="checkbox" (change)="toggleDay(day.name)" [checked]="showAvailability[day.name]"> {{ day.name }}
+                            </label>
+                            <div *ngIf="showAvailability[day.name]">
+                                <div *ngFor="let time of day.times">
+                                    <label>
+                                        <input type="checkbox" (change)="toggleTime(day.name, time)" [checked]="day.selectedTimes.includes(time)"><i class="fa-solid fa-clock"></i>  {{ time }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+        <!-- Ligne 8: Photo de profil -->
+
+        <!-- Ligne 9: Bouton de soumission -->

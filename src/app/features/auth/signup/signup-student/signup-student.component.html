@@ -1,0 +1,142 @@
+<div class="form-wrapper">
+    <div class="form-container">
+        <!-- Partie Image -->
+        <div class="image-section">
+            <img src="https://img.freepik.com/free-photo/woman-trying-understand-new-lesson_23-2148552216.jpg?ga=GA1.1.1807545956.1721340408&semt=ais_hybrid" alt="Image Placeholder">
+        </div>
+
+        <!-- Partie Formulaire -->
+        <div class="form-section">
+            <div class="form-title">Inscription Étudiant</div>
+            <form   class="signup-form">
+                                   <!-- LAST NAME -->
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="lastName"> <i class="fa fa-user" aria-hidden="true"></i> Nom:</label>
+                        <input type="text" class="form-control" id="lastName" #lastName="ngModel" name="lastName" [(ngModel)]="registerstudent.lastName" required
+                        [ngClass]="{'is-valid': lastName.valid && lastName.touched,'is-invalid': lastName.invalid && lastName.touched }" />
+                        <div *ngIf=" lastName.invalid && lastName.touched" class="invalid-feedback" >
+                          Last-Name est requis.
+                        </div>
+                    </div>
+
+                                    <!-- FIRST NAME -->
+
+
+                    <div class="form-group">
+                        <label for="firstName"><i class="fa fa-user" aria-hidden="true"></i> Prénom: </label>
+                        <input type="text" class="form-control" #firstName="ngModel" id="firstName" name="firstName" [(ngModel)]="registerstudent.firstName" required
+                        [ngClass]="{'is-valid': firstName.valid && firstName.touched,'is-invalid': firstName.invalid && firstName.touched }" />
+                        <div *ngIf=" firstName.invalid && firstName.touched" class="invalid-feedback" >
+                          First-Name est requis.
+                        </div>
+                    </div>
+                </div>
+
+                                  <!-- EMAIL  -->
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email"> <i class="fa fa-envelope" aria-hidden="true"></i> Adresse Email: </label>
+                        <input type="email" class="form-control" #email="ngModel" id="email" name="email" [(ngModel)]="registerstudent.email" required
+                        [ngClass]="{'is-valid': email.valid && email.touched,'is-invalid': email.invalid && email.touched }" />
+                        <div *ngIf=" email.invalid && email.touched" class="invalid-feedback" >
+                          Email est requis.
+                        </div>
+                    </div>
+
+
+                                    <!-- PHONE  -->
+
+
+                    <div class="form-group">
+                        <label for="phone"><i class="fa fa-phone" aria-hidden="true"></i> Numéro de téléphone:</label>
+                        <input type="tel" class="form-control" #phone="ngModel" id="phone" name="phone" [(ngModel)]="registerstudent.phone" required
+                        [ngClass]="{'is-valid': phone.valid && phone.touched,'is-invalid': phone.invalid && phone.touched }" />
+                        <div *ngIf=" phone.invalid && phone.touched" class="invalid-feedback" >
+                          Phone est requis.
+                        </div>
+                    </div>
+                </div>
+
+                                        <!-- PASSWORD-->
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password"> <i class="fa fa-lock" aria-hidden="true"></i> Mot de passe: </label>
+                        <input type="password" class="form-control p" #password="ngModel" id="password" name="password" [(ngModel)]="registerstudent.password" required minlength="6" pattern=""
+                        [ngClass]="{'is-valid': password.valid && password.touched,'is-invalid': password.invalid && password.touched }" />
+                        <div *ngIf=" password.invalid && password.touched" class="invalid-feedback" >
+                          Password est requis.
+                        </div>
+                    </div>
+ 
+                                        <!--CONFIRM  PASSWORD-->
+
+
+                    <div class="form-group">
+                        <label for="confirmPassword"><i class="fa fa-lock" aria-hidden="true"></i> Confirmation du mot de passe:</label>
+                        <input type="password" class="form-control" id="confirmPassword" #confirmPassword="ngModel" name="confirmPassword" [(ngModel)]="confirmPassword" required  pattern="{{registerstudent.password}}"
+                        [ngClass]="{'is-valid': confirmPassword.valid && confirmPassword.touched,'is-invalid': confirmPassword.invalid && confirmPassword.touched }" />
+                        <div *ngIf=" confirmPassword.invalid && confirmPassword.touched" class="invalid-feedback" >
+                          Confirm-Password est requis.
+                        </div>
+                    </div>
+                </div>
+
+                                              <!--  CLASSE-->
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="class"><i class="fa fa-graduation-cap" aria-hidden="true"></i> status:</label>
+                        <select id="class" class="form-section" #class="ngModel" name="class" [(ngModel)]="registerstudent.section" required
+                        [ngClass]="{'is-valid': class.valid && class.touched, 'is-invalid': class.invalid && class.touched}">
+                            <option value="">Sélectionner une classe</option>
+                            <option value="1">collégien</option>
+                            <option value="2">lycéen</option>
+                            <option value="3">étudiant</option>
+                            <option value="3">employée</option>
+                        </select>
+                        <div *ngIf="class.invalid && class.touched" class="invalid-feedback">
+                            Sélection d'une classe est requise.
+                        </div>
+                    </div>
+                    <div class="form-group gender-options">
+                        <label> <i class="fa fa-venus-mars" aria-hidden="true"></i> Genre : </label></div>
+                    </div>
+
+
+                                           <!-- VILLE -->
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city"><i class="fa fa-city" aria-hidden="true"></i> Ville:</label>
+                        <input type="text" class="form-control" #city="ngModel" id="city" name="city" [(ngModel)]="registerstudent.address" required
+                        [ngClass]="{'is-valid': city.valid && city.touched,'is-invalid': city.invalid && city.touched }" />
+                        <div *ngIf=" city.invalid && city.touched" class="invalid-feedback" >
+                          Ville est requis.
+                        </div>
+                    </div>
+                </div>
+
+                                           <!-- BUTTON SINSCRIRE -->
+
+
+                <button (click)="onSubmit()" class="validate-button" [disabled]="isLoading">
+                    <span class="button-text">S'inscrire</span>
+                    <div class="spinner" *ngIf="isLoading"></div>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+  
+  
+  
+  

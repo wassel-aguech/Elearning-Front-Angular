@@ -1,0 +1,36 @@
+<div class="student-profile-container">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="profile-info" *ngIf="!editMode">
+      <img [src]="studentData?.profilePhoto" alt="Profile Picture" class="profile-picture"/>
+      <h2>{{ studentData?.lastName }}</h2>
+      <h2>{{ studentData?.firstName }}</h2>
+      <p>Email: {{ studentData?.email }}</p>
+      <p>Phone: {{ studentData?.phone }}</p>
+      <p>Gender: {{ studentData?.gender }}</p>
+      <p>City: {{ studentData?.city }}</p>
+      <button (click)="navigateTouppdate()" class="btn-edit">Edit Profile</button>
+      <button (click)="logout()" class="btn-logout">Logout</button> <!-- Added Logout Button -->
+    </div>
+ 
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <h2>My Courses</h2>
+    <div class="course-cards">
+      <div class="course-card" *ngFor="let course of courses">
+        <div class="course-card-content">
+          <h3>{{ course.title }}</h3>
+          <p>Date: {{ course.date | date }}</p>
+          <a [routerLink]="['/courses', course.id]" class="btn-access-course">Access Course</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,72 @@
+<div class="course-component-container">
+  <div class="course-details-container">
+    <!-- Conteneur Principal -->
+    <div class="flex-container">
+      <!-- Section Images -->
+      <div class="image-section">
+        <img [src]="currentImage" alt="Course Image" class="main-image" />
+        <div class="thumbnails-wrapper">
+          <button (click)="prevImage()" class="nav-btn"><i class="fas fa-chevron-left"></i></button>
+          <div #thumbnailsContainer class="thumbnails-container">
+            <img *ngFor="let image of images; let i = index" [src]="image" alt="Thumbnail {{ i + 1 }}" 
+                 class="thumbnail" (click)="openFullscreen(i)" />
+          </div>
+          <button (click)="nextImage()" class="nav-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+
+      <!-- Section Détails et Commentaires -->
+      <div class="details-reviews-section">
+        <div class="details-section">
+          <h2>{{ courseTitle }}</h2>
+          <p>{{ description }}</p>
+          <p class="price">Price: {{ price }} dt</p>
+          <button class="add-to-cart-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+        </div>
+
+        <div class="reviews-section">
+          <h3><i class="fas fa-star"></i> Reviews</h3>
+          <div class="rating">
+            <input type="radio" id="5-stars" name="rating" value="5" [(ngModel)]="newReview.rating" />
+            <label for="5-stars"><i class="fas fa-star"></i></label>
+            <input type="radio" id="4-stars" name="rating" value="4" [(ngModel)]="newReview.rating" />
+            <label for="4-stars"><i class="fas fa-star"></i></label>
+            <input type="radio" id="3-stars" name="rating" value="3" [(ngModel)]="newReview.rating" />
+            <label for="3-stars"><i class="fas fa-star"></i></label>
+            <input type="radio" id="2-stars" name="rating" value="2" [(ngModel)]="newReview.rating" />
+            <label for="2-stars"><i class="fas fa-star"></i></label>
+            <input type="radio" id="1-star" name="rating" value="1" [(ngModel)]="newReview.rating" />
+            <label for="1-star"><i class="fas fa-star"></i></label>
+          </div>
+          <textarea [(ngModel)]="newReview.body" placeholder="Write a review..."></textarea>
+          <button class="submit-btn" [disabled]="newReview.rating === 0 || !newReview.body.trim()" (click)="submitReview()">
+            <i class="fas fa-paper-plane"></i> Submit Review
+          </button>
+        </div>
+      </div>
+
+      <!-- Fullscreen Modal -->
+      <div *ngIf="isFullscreen" class="fullscreen-modal" (click)="closeFullscreen()">
+        <img [src]="currentImage" alt="Fullscreen Image" class="fullscreen-image" />
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+    
+    
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

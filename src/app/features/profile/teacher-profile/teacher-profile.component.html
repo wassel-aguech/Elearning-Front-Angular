@@ -1,0 +1,71 @@
+<div class="teacher-profile">
+  <div class="sidebar">
+    <img [src]="teacher.photo" alt="Profile Photo" class="profile-photo">
+    <h2>{{ teacher.nom }} {{ teacher.prenom }}</h2>
+    <p>{{ teacher.email }}</p>
+    <p>{{ teacher.bio }}</p>
+   <!-- <a [href]="teacher.cvLink" download="CV_{{ teacher.nom }}_{{ teacher.prenom }}.pdf" class="cv-button">
+      <i class="fa fa-download"></i> Télécharger CV
+    </a> -->
+    <button class="btn-demande" (click)="demanderSession()">Demander une session en ligne</button>
+    
+    <!-- Boutons déplacés vers le bas -->
+     
+    <div class="sidebar-bottom-buttons">
+      <p>
+      <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        <button (click)="viewSales()">
+          <i class="fa fa-chart-line"></i> Ventes
+        </button>
+        <button (click)="editProfile()">
+          <i class="fa fa-edit"></i> Modifier le profil
+        </button>
+        <button (click)="logout()">
+          <i class="fa fa-sign-out-alt"></i> Se déconnecter
+        </button>
+      </div>
+    </div>
+      
+    </div>
+  </div>
+  <div class="main-content">
+    <div class="notification-icon" (click)="toggleNotifications()">🔔</div>
+    <div class="notification-dropdown" *ngIf="showNotifications">
+      <ul>
+        <li *ngFor="let notification of notifications">{{ notification }}</li>
+      </ul>
+    </div>
+    <div class="course-cards">
+      <div class="course-card" *ngFor="let course of teacher.courses">
+        <img [src]="course.photo" alt="{{course.title}}" class="course-img">
+        <div class="course-info">
+          <h3>{{ course.title }}</h3>
+          <p>{{ course.description }}</p>
+          <p class="course-price">{{ course.price }} DT</p>
+          <div class="course-buttons">
+            <button class="edit-course-button" (click)="navigateTouppdatecours()">
+              <i class="fa fa-edit"></i> Modifier
+            </button>
+            <button class="delete-course-button" (click)="deleteCourse(course.id)">
+              <i class="fa fa-trash"></i> Supprimer
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="add-course-button" (click)="navigateToaddcourse()">
+      <i class="fa fa-plus"></i> Ajouter un cours
+    </button>
+    
+</div>
+
+
+
+
+
+

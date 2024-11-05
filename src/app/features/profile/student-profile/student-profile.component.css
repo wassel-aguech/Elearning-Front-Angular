@@ -1,0 +1,166 @@
+/* Container for the sidebar and main content */
+.student-profile-container {
+  display: flex;
+ 
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 400px; /* Adjust width if needed */
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 1000px; /* Adjust height to auto to fit content */
+  position: relative; /* Remove fixed positioning */
+  margin-top: 0px; /* Adds space at the top of the sidebar */
+  
+}
+
+/* Adjust the main content margin to account for sidebar width */
+.main-content {
+  margin-left: 50px; /* Match sidebar width */
+ 
+  
+}
+
+.profile-info, .profile-edit-form {
+  text-align: center;
+}
+
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ffb8d0;
+  margin-bottom: 15px;
+}
+
+h2 {
+  margin: 15px 0;
+  color: #333;
+}
+
+.profile-edit-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.profile-edit-form form div {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-edit-form form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.profile-edit-form form input,
+.profile-edit-form form select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  width: 300;
+}
+
+.profile-edit-form form input[type="file"] {
+  padding: 5px;
+}
+
+.btn-edit, .btn-save, .btn-cancel {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #1a314a;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-edit:hover, .btn-save:hover, .btn-cancel:hover {
+  background-color: #0056b3;
+}
+
+
+
+.course-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.course-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 40%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.course-card-content {
+  text-align: center;
+}
+
+.course-card h3 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.course-card p {
+  margin: 10px 0;
+  color: #666;
+  font-size: 1.1em;
+}
+
+.btn-access-course {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #ffb8d0;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-access-course:hover {
+  background-color: #e092b4;
+}
+
+/* Bouton de déconnexion */
+.btn-logout {
+  padding: 12px 24px; /* Taille du bouton */
+  background-color: #ff6f61; /* Couleur de fond */
+  color: #fff; /* Couleur du texte */
+  border: none; /* Pas de bordure */
+  border-radius: 8px; /* Coins arrondis */
+  font-size: 1.1em; /* Taille de la police */
+  font-weight: bold; /* Gras */
+  cursor: pointer; /* Curseur en forme de main */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transition douce */
+}
+
+/* Effet au survol du bouton de déconnexion */
+.btn-logout:hover {
+  background-color: #e04b49; /* Couleur de fond au survol */
+  transform: scale(1.05); /* Agrandissement léger au survol */
+}

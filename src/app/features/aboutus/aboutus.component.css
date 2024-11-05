@@ -1,0 +1,116 @@
+/* Section principale */
+.about-us {
+    text-align: center;
+    padding: 60px;
+    background-image: url('src/assets/images/abstract-pink-patterned-background_53876-99014.jpg'); /* Image de fond */
+    background-size: cover; /* Couvre toute la section */
+    background-position: center; /* Centre l'image */
+    position: relative; /* Position relative pour permettre le flou */
+    overflow: hidden; /* Évite que le flou dépasse */
+    font-family: 'Poppins', sans-serif; /* Police moderne, élégante et lisible */
+    color: #333; /* Couleur par défaut pour le texte */
+}
+
+/* Titre principal */
+.about-title {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #033495; /* Couleur principale du site, bleu */
+    letter-spacing: 1px; /* Espacement subtil pour rendre le titre plus élégant */
+}
+
+/* Description générale */
+.about-description {
+    font-size: 18px;
+    color: #6a9cfd; /* Bleu complémentaire */
+    margin-bottom: 50px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6; /* Espacement entre les lignes pour meilleure lisibilité */
+}
+
+/* Sections flex avec flou */
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 60px 0;
+    padding: 25px;
+    background-color: rgba(255, 255, 255, 0.8); /* Couleur blanche avec transparence */
+    backdrop-filter: blur(10px); /* Appliquer le flou au fond */
+    border-radius: 20px; /* Bord arrondi plus prononcé pour l’effet carte */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Ombre douce pour effet de profondeur */
+    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Animation fluide */
+}
+
+/* Effet au survol */
+.about-section:hover {
+    transform: translateY(-10px); /* Légère élévation */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); /* Ombre plus profonde pour plus de sophistication */
+}
+
+/* Texte */
+.about-section .text {
+    flex: 1;
+    padding: 20px;
+    text-align: left;
+}
+
+.about-section .text h2 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #ffb8d0; /* Rose chic pour les titres */
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+.about-section .text p {
+    font-size: 16px;
+    color: #555; /* Couleur de texte adoucie */
+    line-height: 1.8; /* Espacement entre lignes pour meilleure lisibilité */
+}
+
+/* Image */
+.about-section .image {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-section .image img {
+    max-width: 90%;
+    border-radius: 15px; /* Bords arrondis pour adoucir */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation d'image au survol */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Légère ombre pour l'image */
+}
+
+/* Zoom de l'image au survol */
+.about-section:hover .image img {
+    transform: scale(1.05); /* Légère augmentation de taille */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Ombre plus forte au survol */
+}
+
+/* Section inversée */
+.about-section.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Pour les écrans mobiles */
+@media (max-width: 768px) {
+    .about-section {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .about-section.reverse {
+      flex-direction: column;
+    }
+    
+    .about-section .image {
+      margin-top: 20px;
+    }
+}

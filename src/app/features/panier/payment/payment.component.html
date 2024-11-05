@@ -1,0 +1,88 @@
+<!-- payment.component.html -->
+<form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="cardNumber">
+        <i class="fas fa-credit-card"></i> Numéro de Carte
+      </label>
+      <input
+        type="text"
+        id="cardNumber"
+        formControlName="cardNumber"
+        placeholder="1234 5678 9012 3456"
+        [ngClass]="{ 'invalid': submitted && !paymentForm.get('cardNumber')?.valid }"
+      />
+      <div *ngIf="submitted && !paymentForm.get('cardNumber')?.valid" class="error">
+        Le numéro de carte est requis.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="expiryDate">
+        <i class="fas fa-calendar-alt"></i> Date d'Expiration
+      </label>
+      <input
+        type="text"
+        id="expiryDate"
+        formControlName="expiryDate"
+        placeholder="MM/AA"
+        [ngClass]="{ 'invalid': submitted && !paymentForm.get('expiryDate')?.valid }"
+      />
+      <div *ngIf="submitted && !paymentForm.get('expiryDate')?.valid" class="error">
+        La date d'expiration est requise.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="cvv">
+        <i class="fas fa-lock"></i> CVV
+      </label>
+      <input
+        type="text"
+        id="cvv"
+        formControlName="cvv"
+        placeholder="123"
+        [ngClass]="{ 'invalid': submitted && !paymentForm.get('cvv')?.valid }"
+      />
+      <div *ngIf="submitted && !paymentForm.get('cvv')?.valid" class="error">
+        Le CVV est requis et doit être composé de 3 ou 4 chiffres.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="billingAddress">
+        <i class="fas fa-home"></i> Adresse de Facturation
+      </label>
+      <input
+        type="text"
+        id="billingAddress"
+        formControlName="billingAddress"
+        placeholder="123 Rue Exemple, Tunis"
+        [ngClass]="{ 'invalid': submitted && !paymentForm.get('billingAddress')?.valid }"
+      />
+      <div *ngIf="submitted && !paymentForm.get('billingAddress')?.valid" class="error">
+        L'adresse de facturation est requise.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="phoneNumber">
+        <i class="fas fa-phone"></i> Numéro de Téléphone
+      </label>
+      <input
+        type="text"
+        id="phoneNumber"
+        formControlName="phoneNumber"
+        placeholder="+216 12345678"
+        [ngClass]="{ 'invalid': submitted && !paymentForm.get('phoneNumber')?.valid }"
+      />
+      <div *ngIf="submitted && !paymentForm.get('phoneNumber')?.valid" class="error">
+        Le numéro de téléphone est requis et doit être au format +216 12345678.
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="!paymentForm.valid">Payer</button>
+  </form>
+  
+  
+  
+  

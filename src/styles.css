@@ -1,0 +1,54 @@
+
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import 'ngx-toastr/toastr';
+
+
+.navbar {
+  background-color: #123456 !important; /* Utilisez !important pour garantir la priorité */
+}
+
+.navbar-brand {
+  color: #abcdef !important;
+}
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Assure que le body prend toute la hauteur de la fenêtre */
+}
+
+.main-content {
+  flex: 1; /* Permet au contenu principal de prendre tout l'espace disponible */
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1; /* Permet au contenu principal de prendre tout l'espace disponible */
+}
+
+footer {
+  background-color: #333; /* Couleur de fond du footer */
+  color: #fff; /* Couleur du texte du footer */
+  padding: 2rem 0; /* Espacement interne du footer */
+  font-family: 'Montserrat', sans-serif; /* Police du footer */
+  text-align: center; /* Centrer le texte */
+  position: relative;
+  width: 100%;
+}

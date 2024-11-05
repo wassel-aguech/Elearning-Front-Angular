@@ -1,0 +1,205 @@
+/* Général */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif; /* Police améliorée */
+  line-height: 1.6;
+  background-color: #f0f0f5;
+}
+
+/* Conteneur principal */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+ background-color: #edd5db;
+}
+
+.login-box {
+  display: flex;
+  width: 90%;
+  max-width: 1000px;
+  height: 800px;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: #ffffff;
+  transition: transform 0.3s ease-in-out;
+}
+
+.login-box:hover {
+  transform: translateY(-10px);
+}
+.login-left {
+  flex: 1;
+  background-color: #007bff;
+}
+
+.login-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Section droite (formulaire) */
+.login-right {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Titres */
+h1 {
+  font-size: 2.8em; /* Taille plus grande */
+  color: #211b5b;
+  text-align: center; /* Centrer le titre */
+  font-family: 'Poppins', sans-serif; /* Police plus moderne */
+  margin-bottom: 20px;
+}
+
+.form-heading {
+  font-size: 2em; /* Augmentation de la taille du sous-titre */
+  color: #e0a0b2;
+  text-align: center; /* Centrage du sous-titre */
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 40px; /* Espacement plus grand */
+}
+
+/* Groupes de formulaire */
+.form-group {
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #444;
+  font-family: 'Poppins', sans-serif;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+input.is-invalid {
+  border-color: #dc3545;
+}
+
+/* Boutons */
+.login-button {
+  width: 100%;
+  padding: 14px;
+  background-color: #1a314a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.login-button:hover {
+  background-color: #1e3799;
+}
+
+.login-button:disabled {
+  background-color: #ccc;
+}
+
+/* Spinner */
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #007bff;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Options de connexion */
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.forgot-password {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Liens sociaux */
+.social-login {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  color: #333;
+  font-size: 1.25em;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #007bff;
+}
+
+/* Lien d'inscription */
+.register-link {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 1rem;
+}
+
+.register-link a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.register-link a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Messages d'erreur */
+.global-error {
+  margin-top: 10px;
+  color: #dc3545;
+  font-size: 0.875em;
+}

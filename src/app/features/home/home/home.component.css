@@ -1,0 +1,546 @@
+/* Parallax Section */
+.parallax {
+  position: relative;
+  overflow: hidden;
+  background-image: url(src/assets/images/abstract-pink-patterned-background_53876-99014.jpg); /* Replace with your image path */
+  background-size: cover; /* Ensure the background covers the entire area */
+  background-position: center; /* Center the background image */
+  background-attachment: fixed; /* Parallax effect */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #180303;
+  text-align: center;
+}
+
+
+.parallax-content {
+  animation: fadeInUp 2s ease-out;
+}
+.parallax-content h1 {
+  font-size: 3.5rem; /* Slightly larger for more emphasis */
+  font-weight: 700; /* Stronger font weight for boldness */
+  color: #252551; /* Keep the current chic color */
+  text-shadow: 3px 3px 12px rgba(184, 55, 109, 0.4); /* Enhanced shadow for more depth */
+  letter-spacing: 1.5px; /* Added spacing between letters for elegance */
+  margin-bottom: 25px;
+  
+  text-transform: uppercase; /* Gives the title a more modern look */
+}
+
+.parallax-content p {
+  font-size: 1.4rem; /* Increased font size for readability */
+  color: #0c1952;
+  margin-bottom: 50px; /* More spacing below the paragraph */
+  max-width: 800px;
+  line-height: 1.8; /* Increased line spacing for better readability */
+  font-family: 'Open Sans', sans-serif; /* Choose a clean, modern font */
+  letter-spacing: 1px;
+  padding-left: 5%;
+}
+
+.button-start, .button-login {
+  font-size: 1.4rem; /* Slightly larger for a more premium feel */
+  padding: 15px 35px; /* Larger padding for a more substantial button */
+  border: none;
+  border-radius: 50px; /* More rounded for a chic look */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out; /* Smoother hover transitions */
+  margin: 0 15px;
+  color: #fff;
+  background-color: #ffb8d0; /* Keeping the same button colors */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25); /* Slightly deeper shadow for depth */
+  letter-spacing: 1px; /* Adds sophistication to button text */
+  font-family: 'Montserrat', sans-serif; /* Modern and clean font */
+}
+
+.button-start:hover, .button-login:hover {
+  transform: translateY(-7px); /* Increased hover effect for more prominence */
+  background-color: #6a9cfd; /* Color change on hover */
+  box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.3); /* More prominent shadow on hover */
+}
+
+.button-login {
+  background-color: #ffb8d0; /* Retaining the current pink color */
+}
+
+.button-login:hover {
+  background-color: #6a9cfd; /* Switch to blue on hover */
+}
+
+
+
+/* Styles pour les boutons principaux */
+.btn-main {
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #ff6b6b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-main:hover {
+  background-color: #ff3b3b;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll Effect Section */
+.scroll-effect {
+  position: relative;
+  padding: 20px;
+  background-color: #f9eae7; /* Harmoniser avec Additional Section */
+  transition: background-color 0.5s ease;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.scroll-effect-content {
+  text-align: center;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  width: 80vw;
+  height: 60vh;
+}
+
+/* Navigation Buttons - Scroll Section */
+.nav-button {
+  background: #6a9cfd; /* Couleur de fond */
+  color: #fff; /* Couleur du texte */
+  border: none;
+  border-radius: 50%; /* Bord arrondi pour un effet circulaire */
+  width: 50px; /* Taille du bouton */
+  height: 50px; /* Taille du bouton */
+  font-size: 24px; /* Taille de la police */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Ombre légère */
+}
+
+.nav-button:hover {
+  background: #4a7bd4; /* Couleur de fond au survol */
+  transform: scale(1.1); /* Agrandissement léger au survol */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2); /* Ombre plus marquée au survol */
+}
+
+/* Add active state if needed */
+.nav-button:active {
+  background: #357ae8; /* Couleur au clic */
+  transform: scale(1); /* Réduit l'agrandissement au clic */
+}
+
+
+.categories-wrapper {
+  overflow: hidden;
+  width: 80vw;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.categories-container {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 100%;
+}
+
+.category-card {
+  flex: 0 0 100%;
+  height: 100%;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+  transform: scale(0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.category-card.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.category-icon {
+  width: 30%;
+  height: 30%;
+  margin: 0 auto;
+}
+
+.category-video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+h3 {
+  margin: 20px 0 0;
+}
+
+/* Flex Container */
+.flex-container {
+  position: relative;
+  padding: 20px;
+  background-color: #f9eae7; /* Harmoniser avec Additional Section */
+  transition: background-color 0.5s ease;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  gap: 30px; /* Espace entre les cartes */
+}
+
+/* Card Styles */
+.card1 {
+  display: flex;
+  align-items: center; /* Aligne les éléments verticalement */
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  width: 400px; /* Largeur des cartes */
+  height: 250px; /* Hauteur des cartes */
+  margin: 0;
+}
+
+.card1-icon {
+  width: 40%; /* Largeur pour l'icône */
+  padding: 10px;
+}
+
+.card1-icon video {
+  width: 100%;
+  height: 100%; /* Ajuste la hauteur pour mieux remplir l'espace */
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.card1-content {
+  width: 60%; /* Largeur pour le contenu */
+  padding: 20px;
+  text-align: left;
+}
+
+.card1-content h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.card1-content p {
+  margin-top: 10px;
+  color: #666;
+}
+
+.btn-card {
+  padding: 10px 15px;
+  margin-top: 10px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 1rem;
+  display: inline-block; /* S'assure que les boutons ont la même taille */
+  width: 100%; /* S'assure que les boutons remplissent leur conteneur */
+  box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur */
+}
+
+/* Assure que les boutons sont de la même taille */
+.btn-card1 {
+  padding: 10px 15px;
+  margin-top: 10px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 1rem;
+  display: inline-block; /* S'assure que les boutons ont la même taille */
+  width: 100%; /* S'assure que les boutons remplissent leur conteneur */
+  box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur */
+}
+
+.btn-card:hover {
+  background-color: #2980b9;
+  transform: translateY(-3px);
+}
+
+.btn-card:active {
+  background-color: #1f6fb2;
+  transform: translateY(1px);
+}
+
+/* Animation lors du survol */
+.card1:hover {
+  transform: scale(1.05); /* Agrandit légèrement la carte */
+  background-color: #f0f0f0; /* Change la couleur de fond */
+  box-shadow: 0 12px 24px rgba(0,0,0,0.2); /* Ombre plus prononcée */
+}
+
+/* Additional Section */
+.additional-section {
+  position: relative;
+  padding: 20px;
+  background-color: #f9eae7; /* Couleur harmonisée */
+  transition: background-color 0.5s ease;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.additional-section-content {
+  text-align: center;
+}
+
+.additional-section-content h2 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Slider Container */
+.slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Navigation Buttons */
+.nav-button {
+  background: #6a9cfd; /* Couleur des boutons pour harmoniser */
+  border: none;
+  color: #fff;
+  font-size: 2em;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.nav-button:hover {
+  background: #4a7bd4;
+}
+
+/* Types Wrapper */
+.types-wrapper {
+  overflow: hidden;
+  width: 70vw; /* Réduit la largeur du conteneur */
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Types Container */
+.types-container {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+/* Card Styles */
+.card {
+  flex: 1;
+  min-width: 80%; /* Réduit la largeur des cartes */
+  box-sizing: border-box;
+  background: s#fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-icon {
+  width: 80%; /* Augmente la largeur des icônes */
+  height: auto; /* Ajuste la hauteur automatiquement */
+  margin: 0 auto;
+}
+
+.card-video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+h3 {
+  margin: 20px 0 0;
+  color: #333;
+}
+
+/* Active Card */
+.card.active {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .slider-container {
+    flex-direction: column;
+  }
+
+  .types-wrapper {
+    width: 90vw; /* Réduit encore pour petits écrans */
+    height: auto;
+  }
+
+  .card {
+    margin: 10px;
+    width: 90vw; /* Réduit encore la largeur des cartes */
+    height: auto;
+  }
+
+  .card-icon {
+    width: 100%; /* Ajuste pour petits écrans */
+  }
+}
+
+
+/* Reveal Animation */
+.reveal {
+  opacity: 0;
+  transition: opacity 1s ease-out, transform 1s ease-out;
+  transform: translateY(20px);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade In Animation */
+.fadeIn {
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Footer Simple Section */
+.footer-simple {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+}
+
+.footer-simple h4 {
+  margin-bottom: 10px;
+}
+
+.footer-simple p, .footer-simple ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-simple a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-simple a:hover {
+  text-decoration: underline;
+}
+
+.footer-simple .social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 18px;
+  color: white;
+}
+
+.footer-simple .text-center {
+  margin-top: 10px;
+}
+
+/* Styles de base pour les boutons */
+button {
+  background-color: #6a9cfd;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin: 0 10px;
+}
+
+button:hover {
+  background-color: #4a7dd3;
+  transform: scale(1.05);
+}
+
+button:active {
+  background-color: #3a5bb2;
+  transform: scale(0.98);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .parallax-content, .scroll-effect-content, .additional-section-content {
+    padding: 10px;
+  }
+
+  .slider-container, .categories-wrapper, .types-wrapper {
+    width: 100vw;
+    height: auto;
+  }
+}
+

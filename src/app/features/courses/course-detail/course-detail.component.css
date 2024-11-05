@@ -1,0 +1,273 @@
+.course-component-container {
+ background-color: #efdfe4; /* Assure que l'image couvre tout le conteneur */
+  min-height: 100vh; /* Assure que le conteneur occupe toute la hauteur de la vue */
+  padding: 20px; /* Ajouter du padding autour du contenu */
+  box-sizing: border-box; /* Assure que le padding est inclus dans la largeur et la hauteur */
+}
+
+/* Conteneur principal pour les détails du cours */
+.course-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+ background-color: rgb(255, 255, 255); /* Assure que l'image couvre tout le conteneur */
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 40px auto;
+  position: relative; /* Position relative pour le modal fullscreen */
+  z-index: 1; /* Assure que le conteneur principal est au-dessus des autres éléments */
+}
+
+/* Si le conteneur principal a une couleur de fond semi-transparente */
+.course-details-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(48, 44, 99, 0.179); /* Couleur semi-transparente pour le fond */
+  backdrop-filter: blur(10px); /* Effet de flou pour le fond */
+  z-index: -1; /* Assure que cet élément est en dessous du contenu */
+  border-radius: 12px; /* Assure que le flou est également arrondi */
+}
+
+/* Flex Container pour l'organisation des colonnes */
+.flex-container {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  justify-content: center; /* Centrage horizontal des colonnes */
+}
+
+/* Section Image */
+.image-section {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.thumbnails-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px; /* Augmentation de l'espace pour un meilleur espacement */
+  width: 100%;
+  overflow: hidden; /* Masquer le débordement pour s'assurer que les vignettes restent dans la zone visible */
+}
+
+.thumbnails-container {
+  display: flex;
+  overflow-x: auto; /* Activer le défilement horizontal */
+  padding: 5px; /* Padding autour du conteneur */
+  white-space: nowrap;
+  gap: 20px; /* Augmentation de l'espace entre les vignettes */
+  width: calc(130px * 4 + 30px * 3); /* Ajuster la largeur pour afficher 4 vignettes avec des espaces accrus */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre facultative pour une meilleure visibilité */
+  border-radius: 8px; /* Bordure arrondie pour un look plus poli */
+  scroll-behavior: smooth;
+}
+
+.thumbnail {
+  width: 100px; /* Largeur de chaque vignette */
+  height: 100px; /* Hauteur de chaque vignette */
+  border: 2px solid #e0a0b2;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+  object-fit: cover;
+}
+
+.thumbnail:hover {
+  border-color: #ff6b6b;
+  transform: scale(1.1);
+}
+
+.nav-btn {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 12px; /* Augmentation du padding */
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-btn:hover {
+  background-color: #e24444;
+  transform: translateY(-2px);
+}
+
+/* Section Détails et Commentaires */
+.details-reviews-section {
+  flex:2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.details-section {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width:5000px; 
+  height: 320px;
+  
+}
+
+.details-section h2 {
+  font-size: 24px;
+  color: #033495;
+}
+
+.details-section p {
+  font-size: 16px;
+  color: #555;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff6b6b;
+}
+
+.add-to-cart-btn {
+  background-color: #033495;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  text-align:end;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #022d72;
+}
+
+/* Section Reviews */
+.reviews-section {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reviews-section h3 {
+  font-size: 20px;
+  color: #033495;
+}
+
+.rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.rating > input {
+  display: none;
+}
+
+.rating > label {
+  position: relative;
+  width: 35px;
+  font-size: 35px;
+  color: #e0a0b2; /* Couleur de base des étoiles */
+  cursor: pointer;
+}
+
+.rating > label::before {
+  content: "\2605"; /* Unicode pour une étoile pleine */
+  position: absolute;
+  opacity: 0;
+}
+
+.rating > label:hover:before,
+.rating > label:hover ~ label:before {
+  opacity: 1;
+  color: #ff6b6b; /* Couleur d'étoile au survol */
+}
+
+.rating > input:checked ~ label:before {
+  opacity: 1;
+  color: #ff6b6b; /* Couleur des étoiles sélectionnées */
+}
+
+.rating:hover > input:checked ~ label:before {
+  opacity: 0.4;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+  font-size: 16px;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+  border-color: #ff6b6b;
+  outline: none;
+}
+
+.submit-btn {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.submit-btn:hover:enabled {
+  background-color: #e24444;
+}
+
+
+/* Fullscreen Modal */
+.fullscreen-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.fullscreen-image {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  object-fit: contain;
+}
+  

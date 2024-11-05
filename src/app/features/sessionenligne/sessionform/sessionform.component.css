@@ -1,0 +1,95 @@
+/* Structure principale */
+.demande-session-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 40px;
+    height: 100vh; /* Pour que le conteneur prenne toute la hauteur de la fenêtre */
+   background-color: rgb(246, 232, 239);
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif; /* Remplacez par votre police préférée */
+}
+
+/* Informations du professeur */
+.prof-info {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}
+
+/* Formulaire d'inscription */
+.formulaire-inscription {
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Conteneur des colonnes du formulaire */
+.form-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Colonnes du formulaire */
+.form-column {
+    flex: 1;
+    margin: 0 10px;
+}
+
+/* Styles des groupes de formulaire */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Boutons */
+.btn-demande,
+.btn-submit {
+    background-color: #6a9cfd;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-demande:hover,
+.btn-submit:hover {
+    background-color: #5a88e0; /* Couleur plus foncée au survol */
+}
+
+/* Styles des champs de formulaire */
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #6a9cfd; /* Couleur de bordure au focus */
+    outline: none; /* Supprime l'outline par défaut */
+}
+
+/* Styles pour le texte */
+h2 {
+    margin-bottom: 20px;
+    color: #033495; /* Couleur pour les titres */
+    font-family: 'Raleway', sans-serif; /* Changez pour la police souhaitée */
+}
+
+/* Styles du message d'erreur (facultatif) */
+.error-message {
+    color: red;
+    font-size: 14px;
+}

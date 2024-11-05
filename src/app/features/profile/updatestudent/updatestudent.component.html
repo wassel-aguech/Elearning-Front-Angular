@@ -1,0 +1,49 @@
+<div class="update-profile-container">
+    <!-- Formulaire de mise à jour du profil -->
+    <div class="update-profile-form">
+      <h2>Mettre à jour le profil</h2>
+  
+      <!-- Section pour la photo de profil -->
+      <label for="profilePicture" class="profile-pic" style="background-image: url('{{studentData.profilePicture}}')">
+        <span class="fas fa-camera"></span>
+        <span>Change Image</span>
+      </label>
+      <!-- Input pour sélectionner une nouvelle photo de profil -->
+      <input id="profilePicture" type="file" (change)="onFileSelected($event)" />
+  
+      <!-- Formulaire pour les autres informations -->
+      <form (ngSubmit)="updateProfile()">
+        <div>
+          <label for="name">Nom :</label>
+          <input id="name" [(ngModel)]="studentData.name" name="name" required>
+        </div>
+        <div>
+          <label for="email">Email :</label>
+          <input id="email" type="email" [(ngModel)]="studentData.email" name="email" required>
+        </div>
+        <div>
+          <label for="phone">Téléphone :</label>
+          <input id="phone" type="tel" [(ngModel)]="studentData.phone" name="phone" required>
+        </div>
+        <div>
+          <label for="password">Mot de passe :</label>
+          <input id="password" type="password" [(ngModel)]="studentData.password" name="password">
+        </div>
+        <div>
+          <label for="gender">Genre :</label>
+          <select id="gender" [(ngModel)]="studentData.gender" name="gender">
+            <option value="male">Homme</option>
+            <option value="female">Femme</option>
+            <option value="other">Autre</option>
+          </select>
+        </div>
+        <div>
+          <label for="city">Ville :</label>
+          <input id="city" [(ngModel)]="studentData.city" name="city">
+        </div>
+        <button type="submit" class="btn-update">Mettre à jour</button>
+        <button type="button" (click)="cancelUpdate()" class="btn-cancel">Annuler</button>
+      </form>
+    </div>
+  </div>
+  

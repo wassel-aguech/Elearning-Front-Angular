@@ -1,0 +1,323 @@
+.teacher-profile {
+  display: flex;
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+.sidebar {
+  width: 300px;
+  background-color: #1a314a;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Adjust for bottom buttons */
+  align-items: center;
+  height: 100vh;
+}
+/* Styles pour le conteneur du professeur */
+.prof-container {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Bouton de demande de session */
+.btn-demande {
+  background-color: #6a9cfd;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px; /* Espace au-dessus du bouton */
+}
+
+.btn-demande:hover {
+  background-color: #5a88e0; /* Couleur plus foncée au survol */
+}
+
+.profile-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; /* Circle photo */
+  object-fit: cover; /* Ensure the photo covers the circle without distortion */
+  margin-bottom: 40px;
+}
+
+.sidebar h2, .sidebar p {
+  margin: 10px 0;
+  text-align: center;
+  color: #edf0f3;
+}
+
+.cv-button {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  width: 60%;
+  padding: 10px;
+  text-align: center;
+  background-color: #d0a2b1;
+  color: rgb(253, 252, 252);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+.cv-button i {
+  margin-right: 5px;
+}
+
+.sidebar button {
+  display: flex;
+  align-items:center;
+  margin-top: 10px;
+  width: 80%;
+  padding: 10px;
+  text-align: center;
+  background-color: #385898;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 6.5%;
+ 
+}
+
+.sidebar button i {
+  margin-right: 10px;
+}
+
+.sidebar-bottom-buttons {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: auto; /* Ensures buttons are at the bottom */
+}
+
+.sidebar button:hover, .cv-button:hover {
+  background-color: #5a8bdf;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.notification-icon {
+  align-self: flex-end;
+  font-size: 24px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.notification-dropdown {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.notification-dropdown ul {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+}
+
+.notification-dropdown li {
+  padding: 10px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.notification-dropdown li:last-child {
+  border-bottom: none;
+}
+
+
+
+
+/* Style pour chaque carte de cours */
+.course-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 280px; /* Largeur des cartes */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Style pour l'image du cours */
+.course-img {
+  width: 100%;
+  height: 150px; /* Hauteur de l'image */
+  object-fit: cover;
+}
+
+/* Conteneur des informations du cours */
+.course-info {
+  padding: 15px;
+}
+
+/* Titre du cours */
+.course-info h3 {
+  margin: 10px 0;
+  font-size: 1.2em; /* Taille de la police du titre */
+}
+
+/* Description du cours */
+.course-info p {
+  margin: 0 0 10px;
+  color: #555;
+}
+
+/* Prix du cours */
+.course-price {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Conteneur des boutons de la carte */
+.course-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* Bouton de modification du cours */
+.edit-course-button,
+.delete-course-button {
+  border: none;
+  background: #d0a2b1;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-course-button i,
+.delete-course-button i {
+  margin-right: 5px;
+}
+
+.edit-course-button:hover,
+.delete-course-button:hover {
+  background: #df5aaa;
+}
+
+/* Style pour le bouton d'ajout de cours */
+.add-course-button {
+  background: #1a314a;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px; /* Bouton plus petit */
+  font-size: 0.9em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+  margin: 0 auto; /* Centre le bouton */
+ 
+}
+
+.add-course-button i {
+  margin-right: 6px;
+}
+
+.add-course-button:hover {
+  background: #5a8bdf;
+}
+
+
+/* Style pour le bouton de basculement */
+.btn {
+  background-color: #edf0f3; /* Couleur de fond du bouton */
+  border: none;
+  color: rgb(6, 0, 0);
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:hover {
+  background-color: #2980b9; /* Couleur de fond au survol */
+  transform: scale(1.05); /* Effet d'agrandissement au survol */
+}
+
+.btn i {
+  margin-right: 8px; /* Espace entre l'icône et le texte */
+}
+
+/* Style pour la section collapsible */
+.collapse {
+  margin-top: 10px; /* Espace au-dessus de la section collapsible */
+}
+
+.card {
+  background-color: #fff; /* Couleur de fond de la carte */
+  border: 1px solid #ddd; /* Bordure de la carte */
+  border-radius: 8px; /* Coins arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  padding: 15px; /* Espace intérieur de la carte */
+}
+
+.card-body {
+  padding: 0; /* Retirer le padding par défaut */
+}
+
+/* Style pour les boutons à l'intérieur de la carte */
+.card-body button {
+  background-color: #be5b7c; /* Couleur de fond des boutons */
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-bottom: 10px;
+
+  text-align: left;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.card-body button:hover {
+  background-color: #2980b9; /* Couleur de fond au survol */
+}
+
+.card-body button i {
+  margin-right: 8px; /* Espace entre l'icône et le texte */
+}

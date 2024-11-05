@@ -1,0 +1,38 @@
+<div class="sales-table-container">
+  <h2>Tableau des Ventes</h2>
+  <table class="sales-table">
+    <thead>
+      <tr>
+        <th><i class="fa fa-calendar" aria-hidden="true"></i> Date</th>
+        <th><i class="fa fa-user" aria-hidden="true"></i> Nom</th>
+        <th><i class="fa fa-user" aria-hidden="true"></i> Prénom</th>
+        <th><i class="fa fa-book" aria-hidden="true"></i> Cours Achetez</th>
+        <th><i class="fa fa-tags" aria-hidden="true"></i> Catégorie</th>
+        <th><i class="fa fa-book" aria-hidden="true"></i> Matières</th>
+        <th><i class="fa fa-money-bill-alt" aria-hidden="true"></i> Prix de l'unité (DT)</th>
+        <th><i class="fa fa-dollar-sign" aria-hidden="true"></i> Total Vente par Personne (DT)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sale of sales">
+        <td>{{ sale.date | date:'dd/MM/yyyy' }}</td>
+        <td>{{ sale.lastName }}</td>
+        <td>{{ sale.firstName }}</td>
+        <td [innerHTML]="formatList(sale.courses)"></td>
+        <td [innerHTML]="formatList(sale.categories)"></td>
+        <td [innerHTML]="formatList(sale.subjects)"></td>
+        <td [innerHTML]="formatList(sale.unitPrices)"></td>
+        <td>
+          <div *ngFor="let total of sale.totalSales">
+            {{ total }}
+          </div>
+          <strong>Total: {{ sale.totalAmount }}</strong>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+  
+  
+  

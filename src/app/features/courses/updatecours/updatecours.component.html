@@ -1,0 +1,67 @@
+<div class="ajouter-cours-container">
+    <h2 class="ajouter-cours-title">Mettre à Jour le Cours</h2>
+    <form [formGroup]="coursForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <div class="form-label-container">
+          <i class="form-icon fas fa-user"></i> <!-- Icône utilisateur -->
+          <label for="nom">Nom</label>
+        </div>
+        <input id="nom" type="text" formControlName="nom" class="form-control" />
+      </div>
+  
+      <div class="form-group">
+        <div class="form-label-container">
+          <i class="form-icon fas fa-book"></i> <!-- Icône livre -->
+          <label for="titre">Titre</label>
+        </div>
+        <input id="titre" type="text" formControlName="titre" class="form-control" />
+      </div>
+  
+      <div class="form-group">
+        <div class="form-label-container">
+          <i class="form-icon fas fa-pencil-alt"></i> <!-- Icône description -->
+          <label for="description">Description</label>
+        </div>
+        <textarea id="description" formControlName="description" class="form-control-description"></textarea>
+      </div>
+  
+      <div class="form-group">
+        <div class="form-label-container">
+          <i class="form-icon fas fa-chalkboard"></i> <!-- Icône matière -->
+          <label for="matiere">Matière</label>
+        </div>
+        <input id="matiere" type="text" formControlName="matiere" class="form-control" />
+      </div>
+  
+      <div class="form-group">
+        <div class="form-label-container">
+          <i class="form-icon fas fa-tags"></i> <!-- Icône catégorie -->
+          <label for="categorie">Catégorie</label>
+        </div>
+        <input id="categorie" type="text" formControlName="categorie" class="form-control" />
+      </div>
+  
+      <div class="form-group">
+        <div class="form-label-container">
+          <i class="form-icon fas fa-dollar-sign"></i> <!-- Icône prix -->
+          <label for="prix">Prix (€)</label>
+        </div>
+        <input id="prix" type="number" formControlName="prix" class="form-control" />
+      </div>
+  
+      <div class="form-group">
+        <label for="photo">Photo</label>
+        <input id="photo" type="file" (change)="onPhotoChange($event)" class="form-control-file" />
+        <p *ngIf="currentPhoto">Photo actuelle : {{ currentPhoto }}</p> <!-- Affichage de la photo actuelle -->
+      </div>
+  
+      <div class="form-group">
+        <label for="pdf">Exporter le cours (PDF)</label>
+        <input id="pdf" type="file" (change)="onPdfChange($event)" class="form-control-file" />
+        <p *ngIf="currentPdf">PDF actuel : {{ currentPdf }}</p> <!-- Affichage du PDF actuel -->
+      </div>
+  
+      <button type="submit" class="btn-primary" [disabled]="!coursForm.valid">Mettre à Jour le Cours</button>
+    </form>
+  </div>
+  

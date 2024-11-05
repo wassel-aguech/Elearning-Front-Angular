@@ -1,0 +1,168 @@
+<div class="container mt-5">
+   
+    <h2 class="mb-4 text-center text-primary" style="font-size: 2em">Liste des Matières</h2>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Ajouter matiere
+      </button>
+      <br>
+     
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+           
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">  ajout matiere </label>
+                            <input type="email" class="form-control" #libelle="ngModel" id="libelle" name="libelle" [(ngModel)]="modelmatiere.libelle" required
+                            [ngClass]="{'is-valid': libelle.valid && libelle.touched,'is-invalid': libelle.invalid && libelle.touched }" />
+                            <div *ngIf="libelle.invalid && libelle.touched" class="invalid-feedback" >
+                              Email est requis.
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button (click)="savematiere()"  type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+   
+   
+   
+   
+    <!-- Modal modifier -->
+      <!-- <div class="modal fade" id="exampleModalmodifier" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+           
+                <form [formGroup]="FormGroupviewupd" >
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12">
+                            <div class="form-inner">
+                                <label>Nom Matiere*</label>
+                                <input
+                                    class="form-control"
+                                    id="nomMatiere"
+                                    required
+                                    formControlName="nomMatiere"
+                                    name="nomMatiere"
+                                    type="text"
+                                    placeholder="nomMatiere"/>
+                                <small *ngIf="submitted && FormGroupviewupd.get('nomMatiere')?.invalid" class="text-danger">Nom Matiere est obligatoire</small>
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-md-12">
+                            <div class="form-inner">
+                                <label>Coeficient *</label>
+                                <input
+                                    class="form-control"
+                                    id="coeficient"
+                                    required
+                                    formControlName="coeficient"
+                                    name="coeficient"
+                                    type="text"
+                                    placeholder="coeficient"/>
+                                <small *ngIf="submitted && FormGroupviewupd.get('coeficient')?.invalid" class="text-danger">coeficient est obligatoire</small>
+                            </div>
+                        </div>
+       
+                        <div class="col-xl-12 col-lg-12 col-md-12">
+                            <div class="form-inner">
+                                <label>Cover *</label>
+                                <input
+                                    class="form-control"
+                                    id="cover"
+                                    required
+                                    formControlName="cover"
+                                    name="cover"
+                                    type="text"
+                                    placeholder="cover"/>
+                                <small *ngIf="submitted && FormGroupviewupd.get('cover')?.invalid" class="text-danger">cover est obligatoire</small>
+                            </div>
+                        </div>
+       
+                        <div class="col-xl-12 col-lg-12 col-md-12">
+                            <div class="form-inner">
+                                <label>Duree*</label>
+                                <input
+                                    class="form-control"
+                                    id="duree"
+                                    required
+                                    formControlName="duree"
+                                    name="duree"
+                                    type="text"
+                                    placeholder="duree"/>
+                                <small *ngIf="submitted && FormGroupviewupd.get('duree')?.invalid" class="text-danger">duree est obligatoire</small>
+                            </div>
+                        </div>
+                   
+                </div>
+                 
+                </form>
+   
+   
+   
+   
+   
+            </div>
+            <div class="modal-footer">
+              <button  type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button (click)="updateMatiere()"  type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   <br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom de la Matière</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+         
+            <tr *ngFor="let matiere of listmatiere">
+                <td>{{ matiere.id }}</td>
+                <td>{{ matiere.libelle}}</td>
+
+                <button (click)="getbyid(matiere.id)"    class="btn btn-sm btn-success me-2 custom-width"  data-bs-toggle="modal" data-bs-target="#exampleModalmodifier">      
+                    Modifier
+                  </button >
+                  <button (click)="deleteMatiere(matiere.id)"  class="btn btn-sm btn-danger me-2 custom-width">
+                  Supprimer
+                  </button >
+                 
+               
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+

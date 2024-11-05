@@ -1,0 +1,23 @@
+<div class="cart-container">
+  <h2>Mon Panier</h2>
+  <div class="cart-items">
+      <div *ngFor="let item of cartItems" class="cart-card">
+          <div class="card-content">
+              
+              <div class="item-details">
+                  <h3>{{ item.name }}</h3>
+                  <p class="item-price"><i class="fas fa-money-bill-wave icon"></i> {{ item.price }} DT</p>
+                  <p class="item-description">description!</p>
+              </div>
+          </div>
+          <button class="remove-btn" (click)="removeItem(item.id)">
+              <i class="fas fa-times-circle icon"></i>
+          </button>
+      </div>
+  </div>
+  <hr />
+  <div class="cart-summary">
+      <h3>Total du Panier: <span>{{ total }} DT</span></h3>
+      <button class="checkout-btn" (click)="navigateToPayement()">Passer à la caisse</button>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="request-form">
+    <h2>Demande de Session en Ligne</h2>
+    <form [formGroup]="requestForm" (ngSubmit)="onSubmit()" novalidate>
+        <label for="name">Nom Complet:</label>
+        <input type="text" id="name" formControlName="name" placeholder="Votre nom" />
+        <div *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+            <small *ngIf="name?.errors?.['required']">Nom est requis.</small>
+            <small *ngIf="name?.errors?.['minlength']">Nom doit avoir au moins 2 caractères.</small>
+        </div>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" formControlName="email" placeholder="Votre adresse email" />
+        <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+            <small *ngIf="email?.errors?.['required']">Email est requis.</small>
+            <small *ngIf="email?.errors?.['email']">Email n'est pas valide.</small>
+        </div>
+
+        <label for="subject">Matière:</label>
+        <select id="subject" formControlName="subject">
+            <option value="" disabled selected>Choisissez une matière</option>
+            <option value="maths">Mathématiques</option>
+            <option value="science">Science</option>
+            <option value="francais">Français</option>
+        </select>
+        <div *ngIf="subject?.invalid && (subject?.dirty || subject?.touched)">
+            <small>Matière est requise.</small>
+        </div>
+
+        <label for="date">Date Préférée:</label>
+        <input type="date" id="date" formControlName="date" />
+        <div *ngIf="date?.invalid && (date?.dirty || date?.touched)">
+            <small>Date est requise.</small>
+        </div>
+
+        <label for="time">Heure Préférée:</label>
+        <input type="time" id="time" formControlName="time" />
+        <div *ngIf="time?.invalid && (time?.dirty || time?.touched)">
+            <small>Heure est requise.</small>
+        </div>
+
+        <label for="comments">Commentaires Supplémentaires:</label>
+        <textarea id="comments" formControlName="comments" placeholder="Ajouter des détails ou des commentaires supplémentaires"></textarea>
+
+        <!-- Bouton de soumission -->
+        <button type="submit" [disabled]="requestForm.invalid">Soumettre la Demande</button>
+        <div *ngIf="successMessage" class="success-message">
+            {{ successMessage }}
+          </div>
+    </form>
+</div>
+

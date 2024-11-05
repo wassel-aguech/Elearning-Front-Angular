@@ -1,0 +1,51 @@
+html, body {
+  height: 100%;
+  margin: 0; /* Enlève les marges par défaut du body */
+  font-family: Arial, sans-serif;
+}
+
+/* Container for the layout */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Assure que le conteneur occupe toute la hauteur de la fenêtre */
+  margin: 0; /* Enlève les marges du conteneur */
+}
+
+/* Navbar Styles */
+.navbar {
+  width: 100%; /* Largeur complète */
+  background-color: #333;
+  color: #fff;
+  padding: 0; /* Enlève le padding */
+  margin: 0; /* Enlève les marges */
+  box-sizing: border-box; /* Inclut le padding dans la largeur totale */
+  position: fixed; /* Fixe la navbar en haut */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Assure qu'elle est au-dessus des autres éléments */
+}
+
+/* Main Content Styles */
+.main-content {
+  flex: 1; /* Permet au contenu de grandir et de remplir l'espace disponible */
+  padding: 0; /* Enlève le padding */
+  margin-top: 90px; /* Assure un espace pour la navbar fixe */
+  margin-bottom: 0px; /* Assure un espace pour le footer */
+  box-sizing: border-box; /* Inclut le padding dans la largeur totale */
+  
+}
+
+/* Footer Styles */
+.footer {
+  width: 100%; /* Largeur complète */
+  background-color: #333;
+  color: #fff;
+  padding: 0; /* Enlève le padding */
+  margin: 0; /* Enlève les marges */
+  box-sizing: border-box; /* Inclut le padding dans la largeur totale */
+  position:relative;
+  bottom: 0;
+  left: 0;
+  z-index: 1000; /* Assure qu'il est au-dessus des autres éléments */
+}

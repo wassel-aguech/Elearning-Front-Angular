@@ -1,0 +1,57 @@
+<div class="sidebar">
+    <h3><i class="fas fa-filter"></i> Filtrer les cours</h3>
+    <div class="search-bar">
+      <label for="category">Catégorie:</label>
+      <select id="category" [(ngModel)]="selectedCategory">
+        <option value="">Tous</option>
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+      </select>
+  
+      <label for="subject">Matière:</label>
+      <select id="subject" [(ngModel)]="selectedSubject">
+        <option value="">Toutes</option>
+        <option *ngFor="let subject of subjects" [value]="subject">{{ subject }}</option>
+      </select>
+  
+      <label for="price">Prix:</label>
+      <input type="range" id="price" min="0" max="100" step="1" [(ngModel)]="maxPrice" />
+      <span>{{ minPrice }} - {{ maxPrice }} DT</span>
+    </div>
+  
+    <nav class="menu">
+      
+      <div class="menu-item" (click)="navigateTo('account')">
+        <i class="fas fa-user"></i> Mon compte
+      </div>
+      <div class="menu-item" (click)="navigateTo('cart')">
+        <i class="fas fa-shopping-cart"></i> Panier
+      </div>
+      <div class="menu-item" (click)="navigateTo('settings')">
+        <i class="fas fa-cogs"></i> Paramètres
+      </div>
+    </nav>
+  </div>
+  
+  <div class="main-content" [@courseAnimation]>
+    <div class="course-list">
+      <div *ngFor="let course of filteredCourses()" class="course-card">
+        <img [src]="course.imageUrl" alt="{{ course.title }}" class="course-image">
+        <div class="course-content">
+          <h2>{{ course.title }}</h2>
+          <p>{{ course.description }}</p>
+          <p class="price">{{ course.price }} DT</p>
+          <button class="course-button">Voir le cours</button>
+          <br>
+          <br>
+          <button class="course-button">ajouter au panier </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  

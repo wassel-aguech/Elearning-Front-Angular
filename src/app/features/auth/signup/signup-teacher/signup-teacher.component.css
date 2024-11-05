@@ -1,0 +1,214 @@
+/* Style général pour le wrapper du formulaire */
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 100px); /* Ajuster en fonction de la hauteur de votre navbar et footer */
+    background-image: url('src/assets/images/abstract-pink-patterned-background_53876-99014.jpg'); /* Replace with your image path */
+    background-size: cover; /* Ensure the background covers the entire area */
+    background-position: center; /* Center the background image */
+    background-attachment: fixed; /* Parallax effect */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.form-background {
+    display: flex;
+    flex-direction: row;
+    background: rgba(206, 83, 118, 0.185); /* Couleur de fond avec transparence */
+    backdrop-filter: blur(10px); /* Applique un flou au fond */
+    padding: 20px;
+    border-radius: 12px; /* Coins arrondis */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 1200px;
+    width: 100%;
+}
+
+.form-container {
+    display: flex;
+    width: 100%;
+}
+
+.image-placeholder {
+    flex: 1.5; /* Prend tout l'espace à gauche */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px 0 0 12px; /* Coins arrondis uniquement à gauche */
+    overflow: hidden;
+}
+
+.image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.signup-form {
+    flex: 2; /* Prend tout l'espace à droite */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.9); /* Fond blanc avec transparence pour le formulaire */
+    padding: 20px;
+    border-radius: 0 12px 12px 0; /* Coins arrondis uniquement à droite */
+}
+
+/* Style du titre du formulaire */
+.form-title {
+    font-size: 1.6em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Style pour chaque ligne de formulaire */
+.form-row {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+/* Style pour les groupes de formulaire */
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-group input, .form-group textarea {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: #6a9cfd;
+    outline: none;
+}
+
+.form-group .error-message {
+    color: #e74c3c;
+    font-size: 0.8em;
+    margin-top: 5px;
+}
+
+/* Style pour les options radio */
+.radio-options {
+    display: flex;
+    gap: 15px;
+}
+
+.radio-options label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .form-container {
+        flex-direction: column;
+    }
+
+    .image-placeholder {
+        width: 100%;
+        height: 200px; /* Ajuster la hauteur pour les écrans plus petits */
+    }
+}
+
+/* Style pour la section des disponibilités */
+.availability-section {
+    margin-top: 20px;
+}
+
+.availability-section h2 {
+    font-size: 1.4em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.availability-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.availability-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+}
+
+.day-name {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.times {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.time-slot {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.validate-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1a314a;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background 0.3s ease;
+    position: relative;
+}
+
+.validate-button:hover {
+    background: #1a314a;
+}
+
+.spinner {
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 3px solid #fff;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

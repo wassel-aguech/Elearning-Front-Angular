@@ -1,0 +1,107 @@
+/* Conteneur principal du formulaire */
+.ajouter-cours-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background: #f9f9f9; /* Fond légèrement gris pour le formulaire */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  }
+  
+  /* Titre du formulaire */
+  .ajouter-cours-title {
+    font-size: 26px;
+    font-weight: bold;
+    color: #033495; /* Couleur bleue pour le titre */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Style des groupes de formulaire */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  /* Conteneur pour le label et l'icône */
+  .form-label-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  /* Style pour les labels */
+  .form-label-container label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 10px;
+    color: #333;
+    flex: 1;
+  }
+  
+  /* Style pour les icônes */
+  .form-icon {
+    color: #6a9cfd;
+    font-size: 22px;
+
+  }
+  
+  /* Style pour les champs */
+  .form-control,
+  .form-control-file {
+    width: calc(90% - 40px); /* Réduit la largeur pour l'alignement avec l'icône */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .form-control:focus,
+  .form-control-file:focus {
+    border-color: #6a9cfd;
+    box-shadow: 0 0 8px rgba(106, 156, 253, 0.3);
+    outline: none;
+  }
+  
+  /* Style spécifique pour les champs de description */
+  .form-control-description {
+    min-height: 150px;
+    resize: vertical;
+    width: 80%;
+    
+  }
+  
+  /* Style pour les fichiers */
+  .form-control-file {
+    padding: 0;
+    border: 1px solid #8b8787;
+    border-radius: 8px;
+    background: none;
+    
+  }
+  
+  /* Style pour le bouton de soumission */
+  .btn-primary {
+    background-color: #6a9cfd;
+    color: white;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    display: block;
+    margin: 30px auto 0; /* Centrer le bouton avec plus d'espace au-dessus */
+  }
+  
+  .btn-primary:hover {
+    background-color: #5a8cf6;
+    transform: scale(1.05);
+  }
+  
+  .btn-primary:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  

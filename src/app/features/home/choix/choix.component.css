@@ -1,0 +1,174 @@
+/* Styles de base pour le conteneur */
+.choice-container {
+    text-align: center;
+    padding: 20px;
+background-color: #f0d7e1;
+    min-height: 100vh;
+  }
+  
+  /* Styles pour le header */
+  header h1 {
+    font-size: 3em;
+    color: #c17798;
+    margin-bottom: 10px;
+  }
+  
+  header p {
+    font-size: 1.3em;
+    color: #080808;
+  }
+  
+  /* Styles pour les choix de rôle */
+  .role-choices {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Espacement accru entre les cartes */
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+  
+  .role-card {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 350px; /* Augmentation de la largeur des cartes */
+    height: 600px; /* Augmentation de la hauteur des cartes */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-radius 0.3s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .role-card:hover {
+    transform: scale(1.05); /* Agrandissement au survol */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #e0eaff; /* Couleur de fond au survol */
+    border-radius: 20px; /* Forme changée au survol */
+  }
+  
+  .role-card:active {
+    transform: scale(1.1); /* Agrandissement lors du clic */
+    background-color: #d0eaff; /* Couleur de fond au clic */
+    border-radius: 25px; /* Forme plus prononcée lors du clic */
+  }
+  
+  .role-icon {
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+    transition: border-radius 0.3s ease;
+  }
+  
+  .btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #1a314a;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #4a7dd3;
+    transform: scale(1.05);
+  }
+  
+  .info-section {
+    background: #ffffff;
+    padding: 30px;
+    margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .info-section h2 {
+    font-size: 2em;
+    color: #333;
+  }
+  
+  .info-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .info-card {
+    background: #f0f4f8;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .info-card h3 {
+    font-size: 1.5em;
+    color: #333;
+  }
+  
+  .btn-contact {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #6a9cfd;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .btn-contact:hover {
+    background-color: #4a7dd3;
+    transform: scale(1.05);
+  }
+  
+  .testimonials {
+    background: #f7f9fc;
+    padding: 30px;
+    margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .testimonials h2 {
+    font-size: 2em;
+    color: #333;
+  }
+  
+  .testimonial-card {
+    background: #ffffff;
+    padding: 20px;
+    margin: 10px auto;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .testimonial-card p {
+    font-size: 1.2em;
+    color: #666;
+  }
+  
+  
+
+/* Animation pour faire apparaître les cartes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+  

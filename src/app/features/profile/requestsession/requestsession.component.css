@@ -1,0 +1,88 @@
+/* Styles pour le formulaire */
+.request-form {
+    max-width: 600px; /* Largeur augmentée */
+    margin: 0 auto; /* Centrer le formulaire */
+    padding: 30px; /* Plus de padding pour un design spacieux */
+    background-color: #f7f7f7; /* Fond gris clair */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  }
+  
+  .request-form h2 {
+    text-align: center; /* Centrer le titre */
+    color: #333; /* Gris foncé pour le texte */
+    font-size: 24px; /* Taille du texte */
+    margin-bottom: 20px; /* Espacement sous le titre */
+  }
+  
+  .request-form label {
+    display: block; /* Pour que les labels occupent toute la largeur */
+    margin-bottom: 5px; /* Espacement sous le label */
+    color: #555; /* Gris moyen pour les labels */
+    font-weight: bold; /* Gras pour le texte des labels */
+  }
+  
+  .request-form input,
+  .request-form select,
+  .request-form textarea {
+    width: 100%; /* Prendre toute la largeur disponible */
+    padding: 12px; /* Padding pour plus de confort */
+    margin-bottom: 15px; /* Espacement sous les champs */
+    border: 1px solid #ccc; /* Bordure gris clair */
+    border-radius: 5px; /* Coins arrondis */
+    font-size: 16px; /* Taille du texte dans les champs */
+    background-color: #fff; /* Fond blanc pour les champs */
+  }
+  
+  .request-form input:focus,
+  .request-form select:focus,
+  .request-form textarea:focus {
+    border-color: #007bff; /* Bleu pour la bordure au focus */
+    outline: none; /* Retirer l'outline par défaut */
+  }
+  
+  .request-form small {
+    color: #d9534f; /* Rouge pour les messages d'erreur */
+    font-size: 12px; /* Taille du texte pour les messages d'erreur */
+    margin-top: -10px; /* Espacement au-dessus des messages d'erreur */
+    margin-bottom: 10px; /* Espacement sous les messages d'erreur */
+    display: block; /* Pour que les messages d'erreur prennent toute la largeur */
+  }
+  
+  .request-form button[type="submit"] {
+    width: 100%; /* Prendre toute la largeur disponible */
+    padding: 12px; /* Padding pour plus de confort */
+    background-color: #007bff; /* Bleu pour le bouton */
+    color: #fff; /* Texte en blanc */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins arrondis */
+    font-size: 18px; /* Taille du texte du bouton */
+    cursor: pointer; /* Curseur en forme de main */
+    transition: background-color 0.3s ease; /* Transition douce pour la couleur de fond */
+  }
+  
+  .request-form button[type="submit"]:hover {
+    background-color: #0056b3; /* Bleu foncé au survol */
+  }
+  
+  .request-form button[type="submit"]:disabled {
+    background-color: #ccc; /* Gris clair pour le bouton désactivé */
+    cursor: not-allowed; /* Curseur non autorisé */
+  }
+  
+  .request-form textarea {
+    resize: vertical; /* Permet de redimensionner verticalement */
+    min-height: 100px; /* Hauteur minimale pour la textarea */
+  }
+  
+  /* Styles pour le message de succès */
+  .success-message {
+    color: #28a745; /* Vert pour le succès */
+    background-color: #d4edda; /* Fond vert clair */
+    border: 1px solid #c3e6cb; /* Bordure vert clair */
+    border-radius: 5px; /* Coins arrondis */
+    padding: 15px; /* Padding pour plus de confort */
+    margin-top: 20px; /* Espacement au-dessus du message */
+    text-align: center; /* Centrer le texte du message */
+  }
+  

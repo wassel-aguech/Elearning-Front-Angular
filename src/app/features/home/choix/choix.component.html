@@ -1,0 +1,27 @@
+<div class="choice-container">
+    <header>
+      <h1>Bienvenue sur TeachWave</h1>
+      <p>Choisissez votre rôle pour commencer :</p>
+    </header>
+    <main class="role-choices">
+      <div class="role-card">
+        <video autoplay muted loop class="role-icon">
+          <source src="https://cdn-icons-mp4.flaticon.com/512/16675/16675766.mp4" type="video/mp4">
+          Votre navigateur ne supporte pas la vidéo.
+        </video>
+        <h2>Enseignant</h2>
+        <p>Rejoignez notre communauté en tant qu'enseignant pour partager vos connaissances et gérer vos cours.</p>
+        <a (click)="navigateToTeacherSignup()" class="btn">S'inscrire comme Enseignant</a>
+      </div>
+      <div class="role-card">
+        <video autoplay muted loop class="role-icon">
+          <source src="https://cdn-icons-mp4.flaticon.com/512/16675/16675755.mp4" type="video/mp4">
+          Votre navigateur ne supporte pas la vidéo.
+        </video>
+        <h2>Élève</h2>
+        <p>Inscrivez-vous en tant qu'élève pour accéder à des cours passionnants et enrichissants.</p>
+        <a  (click)="navigateToStudentSignup()" class="btn">S'inscrire comme Élève</a>
+      </div>
+    </main>
+  </div>
+  

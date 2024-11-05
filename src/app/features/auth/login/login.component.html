@@ -1,0 +1,84 @@
+<div class="login-container">
+  <div class="login-box">
+    
+    <!-- Image Section -->
+    <div class="login-left">
+      
+      <img src="assets/login.jpg" alt="Rocket">
+
+    </div>
+    
+    <!-- Login Form Section -->
+    <div class="login-right">
+      
+      <!-- Logo and Heading -->
+      <div class="logo-container">
+        <div class="logo">
+          <img src="assets/logo.png" alt="Logo">
+        </div>
+        <h1>Teachewave</h1>
+      </div>
+      
+      <h2 class="form-heading">Login</h2>
+      
+                              <!-- EMAIL-->
+      <form>
+        <div class="form-group" >
+           <label for="email">Email</label>
+          <input id="email" class="form-control" #email="ngModel" type="email" [(ngModel)]="authrequest.email"  name="email" placeholder="Email"
+          [ngClass]="{'is-valid':  email.valid && email.touched,'is-invalid': email.invalid && email.touched }" />
+            <div
+              *ngIf=" email.invalid && email.touched" class="invalid-feedback">
+              E-mail est requis.
+            </div>
+        </div>
+
+                               <!-- PASSWORD-->
+
+        
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input id="password" class="form-control" #password="ngModel" type="password" [(ngModel)]="authrequest.password" name="password" placeholder="Password" 
+          [ngClass]="{'is-valid': password.valid && password.touched,'is-invalid': password.invalid && password.touched }">
+          <div *ngIf=" password.invalid && password.touched" class="invalid-feedback">
+            Password est requis.
+          </div>
+        </div>
+
+                          <!-- FORGET PASSWORD LINK-->
+
+        
+        <div class="login-options">
+          <a href="#" class="forgot-password">Forgot Password?</a>
+        </div>
+
+                            <!-- BUTTON LOGIN -->
+
+        
+        <button (click)="onSubmit()" class="login-button" [disabled]="loading">
+          <ng-container *ngIf="loading">
+            <div class="spinner"></div>
+          </ng-container>
+          <ng-container *ngIf="!loading">
+            Login
+          </ng-container>
+        </button>
+        
+        <div *ngIf="error" class="error-message global-error">{{ error }}</div>
+      </form>
+      
+      <div class="social-login">
+        <p>Or you can join with</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-google"></i></a>
+        </div>
+      </div>
+      
+      <div class="register-link">
+        Don't have an account? <a href="#">Register Now</a>
+      </div>
+    </div>
+  </div>
+</div>

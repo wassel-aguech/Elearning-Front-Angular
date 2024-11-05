@@ -1,0 +1,145 @@
+<!-- Parallax Section -->
+<div class="parallax reveal">
+  <div class="parallax-content">
+    <h1>Bienvenue sur TeachWave</h1>
+    <p>Votre plateforme pour un apprentissage personnalisé et efficace. Découvrez des cours de qualité, des professeurs qualifiés, et bien plus encore.</p>
+    <button class="button-start"  (click)="navigateToChoix()">Commencez</button>
+    <button class="button-login" (click)="navigateTologin()">Connexion</button>
+    
+
+  </div>
+</div>
+<div class="additional-section reveal">
+  <div class="additional-section-content">
+    <h2>Explorez Nos Services</h2>
+    <div class="slider-container">
+      <button class="nav-button" (click)="prevtypes()">&#9664;</button>
+      <div class="types-wrapper">
+        <div class="types-container">
+          <div *ngFor="let type of types; let i = index" [ngClass]="{'category-card': true, 'active': i === currenttypes}">
+            <div class="category-icon">
+              <video autoplay loop muted class="category-video">
+                <source [src]='type.icons' type="video/mp4">
+                Votre navigateur ne supporte pas la balise vidéo.
+              </video>
+            </div>
+            <h3>{{ type.names }}</h3>
+          </div>
+        </div>
+      </div>
+      <button class="nav-button" (click)="nexttypes()">&#9654;</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- Scroll Effect Section -->
+<div class="scroll-effect reveal">
+  <div class="scroll-effect-content">
+    <h2>Explorez Nos Catégories</h2>
+    <div class="slider-container">
+      <button class="nav-button" (click)="prevCategory()">&#9664;</button>
+      <div class="categories-wrapper">
+        <div class="categories-container">
+          <div *ngFor="let category of categories; let i = index" [ngClass]="{'category-card': true, 'active': i === currentCategory}">
+            <div class="category-icon">
+              <video autoplay loop muted class="category-video">
+                <source [src]="category.icon" type="video/mp4">
+                Votre navigateur ne supporte pas la balise vidéo.
+              </video>
+            </div>
+            <h3>{{ category.name}}</h3>
+          </div>
+        </div>
+      </div>
+      <button class="nav-button" (click)="nextCategory()">&#9654;</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- Flexbox Container with Videos -->
+<!-- Flexbox Container with Videos -->
+<div class="flex-container">
+  <div class="card1 reveal">
+    <div class="card1-icon">
+      <video autoplay loop muted>
+        <source src="https://cdn-icons-mp4.flaticon.com/512/16675/16675755.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la balise vidéo.
+      </video>
+    </div>
+    <div class="card1-content">
+      <h3>Étudiants</h3>
+      <p>Découvrez les options d'apprentissage personnalisées pour les étudiants.</p>
+      <button class="btn-card" (click)="navigateToStudentSignup()">Inscription Étudiant</button>
+    </div>
+  </div>
+  <div class="card1 reveal">
+    <div class="card1-icon">
+      <video autoplay loop muted>
+        <source src="https://cdn-icons-mp4.flaticon.com/512/16675/16675766.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la balise vidéo.
+      </video>
+    </div>
+    <div class="card1-content">
+      <h3>Professeurs</h3>
+      <p>Découvrez comment nos professeurs peuvent vous aider à atteindre vos objectifs.</p>
+      <button class="btn-card" (click)="navigateToTeacherSignup()">Inscription Professeur</button>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Additional Section -->
+
+<!-- Footer Section Simplified -->
+<footer class="footer-simple">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h4>Contactez-nous</h4>
+        <p>Adresse: 123 Rue Exemple, Ville, Pays</p>
+        <p>Téléphone: +123 456 7890</p>
+        <p>Email: contactexample.com</p>
+      </div>
+      <div class="col-md-4">
+        <h4>Liens Utiles</h4>
+        <ul>
+          <li><a routerLink="/about">À Propos</a></li>
+          <li><a routerLink="/services">Services</a></li>
+          <li><a routerLink="/contact">Contact</a></li>
+          <li><a routerLink="/privacy">Politique de Confidentialité</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h4>Suivez-nous</h4>
+        <div class="social-icons">
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <p>&copy; 2024 VotreEntreprise. Tous droits réservés.</p>
+    </div>
+  </div>
+</footer>
+
+
+  
+  
