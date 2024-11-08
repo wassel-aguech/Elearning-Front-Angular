@@ -26,11 +26,13 @@ export class GestionniveauComponent {
   idmatiere! : number;
   nomMatiere! : string;
   i: number = 0;
+   searchN! : number;
   
 
   matieree = new FormGroup({
    
-     mat : new FormArray([])
+     mat : new FormArray([]),
+     matname :  new FormArray([])
   })
 
   constructor( private router:Router , private toastr: ToastrService , private niveauservice :NiveauService , private matierservice : MatiereService){}
@@ -43,12 +45,14 @@ export class GestionniveauComponent {
   get mat(){
     return this.matieree.get('mat') as FormArray
   }
+  get matname(){
+    return this.matieree.get('matname') as FormArray
+  }
 
   addmatid(){
 
     this.i= this.i + 1
     this.getbyidmatiere(this.idmatiere)
-
     console.log(this.idmatiere);
     console.log(this.listmatiere.length)
   }
@@ -61,9 +65,9 @@ export class GestionniveauComponent {
       this.viewmodelmatiere = res
 
       if(this.i<=this.listmatiere.length){
+
         this.mat.push(new FormControl(this.idmatiere,Validators.required))
-        
-        this.mat.push(new FormControl(this.viewmodelmatiere.libelle,Validators.required))
+        this.matname.push(new FormControl(this.viewmodelmatiere.libelle,Validators.required))
   
         console.log(this.mat.value)
   
@@ -107,7 +111,7 @@ export class GestionniveauComponent {
     console.log(this.modelniveau)
     this.niveauservice.saveNiveau(this.modelniveau).subscribe({
         next: (response) => {
-         this.toastr.success("matiere ajouter  😎")
+         this.toastr.success("niveau ajouter  😎")
          this.getListNiveaux();
         
         },
@@ -147,7 +151,7 @@ export class GestionniveauComponent {
     }
   
   
-  deleteMatiere(levelId:number)
+  deleteNiveau(levelId:number)
     {
       if(levelId!=undefined && levelId !=null)
       {

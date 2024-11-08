@@ -1,9 +1,9 @@
 export class Niveau {
 
-id! : number;
-niveaustudent! : string
-orientation! : string;
-id_matieres !: number[];
+public id! : number;
+public niveaustudent! : string
+public orientation! : string;
+public id_matieres! : number[];
 
 
 }

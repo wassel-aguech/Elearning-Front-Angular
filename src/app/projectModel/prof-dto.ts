@@ -3,16 +3,16 @@ get(arg0: string) {
 throw new Error('Method not implemented.');
 }
 
- id!:number;
-    firstName!:string;
-    lastName!:string;
-    email!:string;
-    password!:string;
-    address!:string;
-    phone!:string;
-    enabled!:boolean;
-    role!:string;
-    biographie!:string;
+    public id! : number;
+    public firstName! : string;
+    public lastName! : string;
+    public email! : string;
+    public password! : string;
+    public address! : string;
+    public phone! : string;
+    public enabled! : boolean;
+    public role! : string;
+    public biographie! : string;
 
 
 

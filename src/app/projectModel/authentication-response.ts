@@ -1,6 +1,6 @@
 export class AuthenticationResponse {
-    accessToken!:string;
-    refreshToken!:string;
+    public accessToken! : string;
+    public refreshToken! : string;
 
 
 

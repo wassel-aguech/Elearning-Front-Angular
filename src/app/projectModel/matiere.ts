@@ -1,6 +1,6 @@
 export class Matiere {
-    id!:number;
-    libelle!:string;
+    public id! : number;
+    public libelle! : string;
     
     
     

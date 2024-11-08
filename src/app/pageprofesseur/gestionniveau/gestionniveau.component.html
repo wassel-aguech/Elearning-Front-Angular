@@ -1,93 +1,174 @@
 <div class="container mt-5">
-   
-    <h2 class="mb-4 text-center text-primary" style="font-size: 2em">Liste des Niveaux</h2>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Ajouter niveau
-      </button>
-      <br>
-     
+  <h2 class="mb-2 text-center text-primary " style="font-size: 2em">Liste des Niveau </h2> 
+  <button type="button" class="btn btn-lg btn-primary btnadd" data-toggle="modal" data-target="#exampleModal">
+     Ajouter niveau  <span> <i class="fa-solid fa-plus "></i> </span> </button>
 
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <div class="row">
+    <div class="col offset-4">
+      <input type="text" class="form-control mt-1 w-50 searchniveau" placeholder="chercher un niveau par son ID ... " [(ngModel)]="searchN" />
+    </div>
+  </div>
+  <hr />
+
+
+
+   <!-- LISTE DES NIVEAUS-->
+
+  <div class="row">
+    <div class="col-3" *ngFor="let niveau of listviveau">
+      <div class="search" *ngIf="searchN == niveau.id || searchN == null">
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem">
+          <div class="card-header text-center">NIVEAU : {{ niveau.id }}</div>
+          <div class="card-body">
+            <h5 class="card-title">NIVEAU STUDENT</h5>
+            <p>{{ niveau.niveaustudent }}</p>
+            <h5 class="card-title">ORIONTATION</h5>
+            <p>{{ niveau.orientation }}</p>
+
+            <div class="form-group">
+              <label for="" class="text-lg">LISTE MATIERES</label>
+              <select name="" id="" class="form-control">
+                <option value="liste matieres" selected>liste matieres</option>
+              </select>
             </div>
-            <div class="modal-body">
-           
-                <form>
-                    <div class="form-row">
-                        <div class="form-group col">
-                            <label for="niveaustudent"> niveaustudent </label>
-                            <input type="text" class="form-control" #niveaustudent="ngModel" id="niveaustudent" name="niveaustudent" [(ngModel)]="modelniveau.niveaustudent" required
-                            [ngClass]="{'is-valid': niveaustudent.valid && niveaustudent.touched,'is-invalid': niveaustudent.invalid && niveaustudent.touched }" />
-                            <div *ngIf="niveaustudent.invalid && niveaustudent.touched" class="invalid-feedback" >
-                              Niveau est requis.
-                            </div>
-                        </div>
-                        <div class="form-group col">
-                            <label for="email">  orientation </label>
-                            <input type="email" class="form-control" #orientation="ngModel" id="libelle" name="libelle" [(ngModel)]="modelniveau.orientation" required
-                            [ngClass]="{'is-valid': orientation.valid && orientation.touched,'is-invalid': orientation.invalid && orientation.touched }" />
-                            <div *ngIf="orientation.invalid && orientation.touched" class="invalid-feedback" >
-                              Email est requis.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-
-                      <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="idclasse" class="form-label">Classe *</label>
-                            <select [(ngModel)]="idmatiere" name="idclasse" class="form-control" id="idclasse" (change)="addmatid()" >
-                                <option value=-1 disabled checked>Selectionner</option>
-                                <option *ngFor="let classt of listmatiere" [value]="classt.id">{{classt.libelle}}</option>
-                            </select>
-
-                            <form [formGroup]="matieree" >
-                                                         
-                              <div formArrayName="mat" class="form-array">
-                              
-                                  <ng-container *ngFor="let mt of mat.controls, index as i ">
-                              
-                              <input type="text" placeholder="add matiere" [formControlName]="i" class="form-control "> <br>
-
-
-                              
-                                  </ng-container>
-                              
-                              </div>
-                              
-                              
-                              </form>
-
-                        </div>
-                    </div>
-
-
-                      </div>
-
-                  
-    
-
-                </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button (click)="saveniveau()"  type="button" class="btn btn-primary">Save changes</button>
+            <div class="card-footer text-center">
+              <button (click)="getbyid(niveau.id)" class="btn btn-sm btn-warning me-2 custom-width" data-bs-toggle="modal" data-bs-target="#exampleModalmodifier"> Modifier </button>
+              <button (click)="deleteNiveau(niveau.id)" class="btn btn-sm btn-danger me-2 custom-width m-2" >Supprimer </button>
             </div>
           </div>
         </div>
       </div>
-   
-   
-   
-   
-   
-    <!-- Modal modifier -->
-      <!-- <div class="modal fade" id="exampleModalmodifier" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    </div>
+  </div>
+
+  <!-- MODAL AJOUT  -->
+
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form #form="ngForm">
+            <div class="form-row">
+              <div class="form-group col">
+                <label for="niveaustudent"> Niveau Student : </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  #niveaustudent="ngModel"
+                  id="niveaustudent"
+                  name="niveaustudent"
+                  [(ngModel)]="modelniveau.niveaustudent"
+                  required
+                  [ngClass]="{
+                    'is-valid': niveaustudent.valid && niveaustudent.touched,
+                    'is-invalid': niveaustudent.invalid && niveaustudent.touched
+                  }"
+                />
+                <div
+                  *ngIf="niveaustudent.invalid && niveaustudent.touched"
+                  class="invalid-feedback"
+                >
+                  Niveau est requis.
+                </div>
+              </div>
+              <div class="form-group col">
+                <label for="email"> Orientation : </label>
+                <input
+                  type="TEXT"
+                  class="form-control"
+                  #orientation="ngModel"
+                  id="libelle"
+                  name="libelle"
+                  [(ngModel)]="modelniveau.orientation"
+                  required
+                  [ngClass]="{
+                    'is-valid': orientation.valid && orientation.touched,
+                    'is-invalid': orientation.invalid && orientation.touched
+                  }"
+                />
+                <div
+                  *ngIf="orientation.invalid && orientation.touched"
+                  class="invalid-feedback"
+                >
+                  Email est requis.
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="idclasse" class="form-label">Liste matiere</label>
+                  <select
+                    [(ngModel)]="idmatiere"
+                    name="idclasse"
+                    class="form-control"
+                    id="idclasse"
+                    (change)="addmatid()"
+                  >
+                    <option value="-1" disabled checked>Selectionner</option>
+                    <option
+                      *ngFor="let classt of listmatiere"
+                      [value]="classt.id"
+                    >
+                      {{ classt.libelle }}
+                    </option>
+                  </select>
+
+                  <form [formGroup]="matieree" class="fg">
+                    <div formArrayName="mat" class="form-array">
+                      <ng-container *ngFor="let mt of mat.controls; index as i">
+                        <input
+                          type="text"
+                          placeholder="add matiere"
+                          [formControlName]="i"
+                          class="form-control mtid"
+                        />
+                      </ng-container>
+                    </div>
+
+                    <div formArrayName="matname" class="form-array">
+                      <ng-container
+                        *ngFor="let mtn of matname.controls; index as i"
+                      >
+                        <input
+                          type="text"
+                          placeholder="add matiere"
+                          [formControlName]="i"
+                          class="form-control mtnm"
+                        />
+                      </ng-container>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"> Close </button>
+          <button [disabled]="!form.valid" (click)="saveniveau()" type="button" class="btn btn-primary"> ADD NIVEAU </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal modifier -->
+  <!-- <div class="modal fade" id="exampleModalmodifier" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -173,20 +254,14 @@
           </div>
         </div>
       </div> -->
- 
- 
- 
- 
- 
- 
- 
- 
-   <br>
-    <table class="table table-striped">
+
+  <br />
+  <!-- <table class="table table-striped">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Nom de la Niveau</th>
+                <th>Niveau Student</th>
+                <th>Oriontation</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -196,16 +271,11 @@
                 <td>{{ niveau.id }}</td>
                 <td>{{ niveau.niveaustudent}}</td>
                 <td>{{ niveau.orientation}}</td>
-                <button (click)="getbyid(niveau.id)"    class="btn btn-sm btn-success me-2 custom-width"  data-bs-toggle="modal" data-bs-target="#exampleModalmodifier">      
-                    Modifier
-                  </button >
-                  <button (click)="deleteMatiere(niveau.id)"  class="btn btn-sm btn-danger me-2 custom-width">
-                  Supprimer
-                  </button>               
+                <button (click)="getbyid(niveau.id)"    class="btn btn-sm btn-success me-2 custom-width"  data-bs-toggle="modal" data-bs-target="#exampleModalmodifier"> Modifier </button >
+                <button (click)="deleteMatiere(niveau.id)"  class="btn btn-sm btn-danger me-2 custom-width"> Supprimer </button>               
             </tr>
         </tbody>
-    </table>
+    </table> -->
+
+ 
 </div>
-
-
-

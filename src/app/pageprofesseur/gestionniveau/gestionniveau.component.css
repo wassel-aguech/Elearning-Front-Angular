@@ -1,4 +1,58 @@
-.form-array {
-    display: flex;
-    justify-content: space-between;
-  }
+.fg{
+  display: flex;
+  justify-content: space-between;
+}
+
+.mtid{
+  background-color: red;
+  font-weight: bold;
+  transition: 0.8s;
+}
+.mtnm{
+  background-color: gold;
+  font-weight: bold;
+  transition: 0.8s;
+
+}
+
+.mtid:hover{
+  transform: scale(1.2);
+  border-radius: 20px;
+  background-color: black;
+  color : gold;
+  border: 2px solid yellow;
+  text-align: center;
+  text-decoration: underline;
+}
+.mtnm:hover{
+  transform: scale(1.2);
+  border-radius: 20px;
+  background-color: black;
+  color : gold;
+  border: 2px solid yellow;
+  text-align: center;
+  text-decoration: underline;
+}
+.searchniveau{
+  border-radius: 20px;
+  transition: 0.5s;
+  border-bottom: 2px solid black;
+  border-left: 5px solid red;
+  border-right: 5px solid red;
+  border-top: 2px solid black;
+
+}
+.searchniveau:focus{
+  transform: scale(1.2);
+  color: black;
+  font-weight: bold;
+  border-left: 15px solid green;
+  border-right: 15px solid green;
+}
+
+.btnadd{
+  border-radius: 15px;
+  width: 200px;
+}
+
+
