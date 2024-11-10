@@ -1,1 +1,130 @@
-<p>gestioncour works!</p>
+<div class="container mt-5">
+   
+    <h2 class="mb-4 text-center text-primary" style="font-size: 2em">Liste des Cours</h2>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Ajouter Cour
+      </button>
+      <br>
+
+
+
+
+
+      <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>TITRE</th>
+                <th>PRIX</th>
+                <th>ACTION</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+         
+            <tr *ngFor="let cour of listcours">
+                <td>{{ cour.id }}</td>
+                <td>{{ cour.titre}}</td>
+                <td>{{ cour.prix}}</td>
+
+                <button (click)="getbyid(cour.id)"    class="btn btn-sm btn-success me-2 custom-width"  data-bs-toggle="modal" data-bs-target="#exampleModalmodifier">      
+                    Modifier
+                  </button >
+                  <button (click)="deletcours(cour.id)"  class="btn btn-sm btn-danger me-2 custom-width">
+                  Supprimer 
+                  </button >
+                 
+               
+            </tr>
+        </tbody>
+    </table>
+
+   
+
+
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+           
+                <form  #form="ngForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="titre">  ajout cour </label>
+                            <input type="text" class="form-control" #titre="ngModel" id="titre" name="libelle" [(ngModel)]="modelcour.titre" required
+                            [ngClass]="{'is-valid': titre.valid && titre.touched,'is-invalid': titre.invalid && titre.touched }" />
+                            <div *ngIf="titre.invalid && titre.touched" class="invalid-feedback" >
+                              Titre est requis.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="prix">  ajout cour </label>
+                            <input type="number" class="form-control" #prix="ngModel" id="prix" name="prix" [(ngModel)]="modelcour.prix" required
+                            [ngClass]="{'is-valid': prix.valid && prix.touched,'is-invalid': prix.invalid && prix.touched }" />
+                            <div *ngIf="prix.invalid && prix.touched" class="invalid-feedback" >
+                              Prix est requis.
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">  ajout cour </label>
+                            <textarea class="form-control" #description="ngModel" id="description" name="description" [(ngModel)]="modelcour.description" required 
+                            [ngClass]="{'is-valid': prix.valid && prix.touched,'is-invalid': prix.invalid && prix.touched }" >
+                            <div *ngIf="prix.invalid && prix.touched" class="invalid-feedback" >
+                              Prix est requis.
+                            </div>
+                        </textarea>
+                        </div> 
+
+
+       <div class="row">
+        <div class="col">
+              <label for="idclasse" class="form-label">Liste matiere</label>
+                        <select [(ngModel)]="modelcour.idmatiere"  name="idclasse" class="form-control" id="idclasse">
+                          <option value="-1" disabled checked>Selectionner</option>
+                          <option *ngFor="let mat of lisMatiereByEns" [value]="mat.id" > {{ mat.libelle }}</option>
+                        </select>
+        </div>
+       <div class="col">
+             <label for="idclasse" class="form-label">Liste Niveau</label>
+                        <select [(ngModel)]="modelcour.idniveau"  name="idclasse" class="form-control" id="idclasse">
+                          <option value="-1" disabled checked>Selectionner</option>
+                          <option *ngFor="let niv of listviveau" [value]="niv.id" > {{ niv.niveaustudent }}</option>
+                        </select>
+       </div>
+
+
+                   
+
+       </div>
+                       
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button  [disabled]="!form.valid" (click)="savecours()"  type="button" class="btn btn-primary">ADD MATIERE</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>

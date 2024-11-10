@@ -23,6 +23,7 @@ import { AboutusComponent } from './features/aboutus/aboutus.component';
 import { SessionformComponent } from './features/sessionenligne/sessionform/sessionform.component';
 import { GestionmatiereComponent } from './pageprofesseur/gestionmatiere/gestionmatiere.component';
 import { GestionniveauComponent } from './pageprofesseur/gestionniveau/gestionniveau.component';
+import { GestioncourComponent } from './pageprofesseur/gestioncour/gestioncour.component';
 
 
 
@@ -54,6 +55,7 @@ const routes: Routes = [
 {path:'session' , component:SessionformComponent},
 {path:'matiere' , component:GestionmatiereComponent},
 {path:'niveau' , component:GestionniveauComponent},
+  {path : 'cour' , component : GestioncourComponent},
 
 
   { path: '**', redirectTo: '' } // Redirection pour les routes non définies

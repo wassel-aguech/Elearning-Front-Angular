@@ -24,20 +24,18 @@ export class GestionmatiereComponent implements OnInit {
     this.getListMatiere();
     
   }
+
   savematiere(): void {
-  
+    const id = Number(localStorage.getItem("userId"));
+    this.modelmatiere.idensegnant = id;
     this.matierservice.saveMatiere(this.modelmatiere).subscribe({
         next: (response) => {
          this.toastr.success("matiere ajouter  😎")
          this.getListMatiere();
-        
         },
         error: (error: HttpErrorResponse) => {
-       this.toastr.error(" erreur!!!!! 😥")
-          
+       this.toastr.error(" erreur!!!!! 😥")  
         }
-        
-        
       });
     }
   

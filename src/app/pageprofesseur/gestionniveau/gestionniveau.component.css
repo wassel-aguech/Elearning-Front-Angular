@@ -4,12 +4,10 @@
 }
 
 .mtid{
-  background-color: red;
   font-weight: bold;
   transition: 0.8s;
 }
 .mtnm{
-  background-color: gold;
   font-weight: bold;
   transition: 0.8s;
 

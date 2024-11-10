@@ -1,27 +1,18 @@
 export class Cour {
 
-private id! : number;
-private titre! : string;
-private prix! : number;
-private estouverte! : boolean;
-private description! : string;
-private urlimage! :string;
-private urlcours! : string;
+public id! : number;
+public titre! : string;
+public prix! : number;
+public estouverte! : boolean;
+public description! : string;
+public urlimage! :string;
+public urlcours! : string;
 
-private idniveau! : number;
-private idmatiere! : number;
-private idenseignant! : number;
+public idniveau! : number;
+public idmatiere! : number;
+public idenseignant! : number;
 
-private tagid !: number[];
-private sectionid !: number[];
-
-
-
-
-
-
-
-
-
+public tagid !: number[];
+public sectionid !: number[];
 
 }

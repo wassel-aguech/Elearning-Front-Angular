@@ -35,7 +35,20 @@ export class MatiereService {
   // Supprimer une matière par son ID
   deleteMatiereById(id: number): Observable<void> {
    return this.http.delete<void>(`${this.baseUrl}/delete/${id}`);
-  }}
+  }
+
+
+
+
+   // Récupérer toutes les matières  par id Ens
+   findMatiereByIdEns(id : number): Observable<Matiere[]> {
+    return this.http.get<Matiere[]>(`${this.baseUrl}/getMatiereByIdEns/${id}`);
+    }
+
+
+
+
+}
 
 
 
