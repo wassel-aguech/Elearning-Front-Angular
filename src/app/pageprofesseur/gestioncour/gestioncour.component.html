@@ -56,7 +56,7 @@
                 <form  #form="ngForm">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="titre">  ajout cour </label>
+                            <label for="titre">   TITRE </label>
                             <input type="text" class="form-control" #titre="ngModel" id="titre" name="libelle" [(ngModel)]="modelcour.titre" required
                             [ngClass]="{'is-valid': titre.valid && titre.touched,'is-invalid': titre.invalid && titre.touched }" />
                             <div *ngIf="titre.invalid && titre.touched" class="invalid-feedback" >
@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="prix">  ajout cour </label>
+                            <label for="prix">  PRIX </label>
                             <input type="number" class="form-control" #prix="ngModel" id="prix" name="prix" [(ngModel)]="modelcour.prix" required
                             [ngClass]="{'is-valid': prix.valid && prix.touched,'is-invalid': prix.invalid && prix.touched }" />
                             <div *ngIf="prix.invalid && prix.touched" class="invalid-feedback" >
@@ -73,7 +73,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="description">  ajout cour </label>
+                            <label for="description">  DESCRIPTION </label>
                             <textarea class="form-control" #description="ngModel" id="description" name="description" [(ngModel)]="modelcour.description" required 
                             [ngClass]="{'is-valid': prix.valid && prix.touched,'is-invalid': prix.invalid && prix.touched }" >
                             <div *ngIf="prix.invalid && prix.touched" class="invalid-feedback" >
@@ -83,45 +83,57 @@
                         </div> 
 
 
-       <div class="row">
-        <div class="col">
-              <label for="idclasse" class="form-label">Liste matiere</label>
-                        <select [(ngModel)]="modelcour.idmatiere"  name="idclasse" class="form-control" id="idclasse">
+                     <div class="row">
+                      <div class="col">
+                        <label for="idclasse" class="form-label">Liste matiere</label>
+                        <select [(ngModel)]="id_matiere"  name="id_matiere" class="form-control" id="id_matiere">
                           <option value="-1" disabled checked>Selectionner</option>
                           <option *ngFor="let mat of lisMatiereByEns" [value]="mat.id" > {{ mat.libelle }}</option>
                         </select>
-        </div>
-       <div class="col">
-             <label for="idclasse" class="form-label">Liste Niveau</label>
-                        <select [(ngModel)]="modelcour.idniveau"  name="idclasse" class="form-control" id="idclasse">
+                            </div>
+                      <div class="col">
+                       <label for="idclasse" class="form-label">Liste Niveau</label>
+                        <select [(ngModel)]="id_niveau"  name="id_niveau" class="form-control" id="id_niveau">
                           <option value="-1" disabled checked>Selectionner</option>
                           <option *ngFor="let niv of listviveau" [value]="niv.id" > {{ niv.niveaustudent }}</option>
                         </select>
-       </div>
+                      </div>
+                      </div>
 
 
-                   
-
-       </div>
-                       
+                     
 
 
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-group row mb-3 justify-content-center">
+                            <button (click)="fileInput1.click()" style="background-color: transparent; border: none;">
+                                <img (error)="changeSourceimage($event)" [src]="imgUrl" class="rounded-circle" width="100px" height="100px" />
+                                <input hidden type="file" #fileInput1 (change)="onFileInputImage(fileInput1.files)" [(ngModel)]="modelcour.urlimage" name="urlimage">
+                            </button>
+                        </div>
+                        </div>
+                
+                        
+                        <div class="col">
+                          <div class="form-group row mb-3 justify-content-center">
+                            <button (click)="fileInput.click()" style="background-color: transparent; border: none;">
+                                <img (error)="changeSource($event)" [src]="fileUrl" class="rounded-circle" width="100px" height="100px" />
+                                <input hidden type="file" #fileInput (change)="onFileInput(fileInput.files)"  [(ngModel)]="modelcour.urlcours" name="urlcours">
+                            </button>
+                        </div>
+                
 
+                        </div>
+                      </div>
 
-
-
-
-
-
-
-
-
+                      
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button  [disabled]="!form.valid" (click)="savecours()"  type="button" class="btn btn-primary">ADD MATIERE</button>
+              <button  [disabled]="!form.valid" (click)="savecours()"  type="button" class="btn btn-primary">ADD COUR</button>
             </div>
           </div>
         </div>

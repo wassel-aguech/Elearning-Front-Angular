@@ -12,7 +12,7 @@ public idniveau! : number;
 public idmatiere! : number;
 public idenseignant! : number;
 
-public tagid !: number[];
+public tagid!: number[];
 public sectionid !: number[];
 
 }

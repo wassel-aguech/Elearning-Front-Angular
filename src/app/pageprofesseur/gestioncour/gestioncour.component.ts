@@ -23,9 +23,24 @@ export class GestioncourComponent implements OnInit {
   
   listviveau : Niveau [] = [] ;
 
+  imgUrl: string | ArrayBuffer = 'assets/images/img.jpg'
+  fileUrl: string | ArrayBuffer = 'assets/images/img.jpg'
+
+   id_niveau! : number;
+   id_matiere! : number;
+
+  //| ArrayBuffer = 'assets/img/avatar.png'
+  image!: File;
+  file!: File;
+  submitted = false;
 
 
-  constructor( private router:Router , private toastr: ToastrService , private courservice :CourService, private matiereservice :MatiereService , private niveauservice :NiveauService){}
+
+  constructor( private router:Router ,
+     private toastr: ToastrService ,
+      private courservice :CourService,
+       private matiereservice :MatiereService ,
+        private niveauservice :NiveauService){}
 
 
   ngOnInit(): void {
@@ -39,17 +54,43 @@ export class GestioncourComponent implements OnInit {
 
   savecours(): void {
 
-    this.courservice.saveCour(this.modelcour).subscribe({
+      console.log("ahmed", this.image)
+      console.log("ali", this.file)
+      const id = Number(localStorage.getItem("userId"));
+      this.modelcour.idenseignant = id;
+      console.log("wassel" , this.modelcour)
+
+      this.modelcour.idmatiere = Number(this.id_matiere)
+      this.modelcour.idniveau = Number(this.id_niveau)
+      this.modelcour.tagid = [0]
+      this.modelcour.sectionid = [0]
+      this.modelcour.estouverte = false
+
+
+      
+
+      this.courservice.saveCour(this.modelcour).subscribe({
         next: (response) => {
+         this.courservice.uploadCoursDtoFile(response.id, this.image , this.file).subscribe(
+          val =>  {} , error => { alert('oups')} , () => {
+            this.submitted = true ;
+            console.log('akka mouna',this.file)
+          alert("produit a été ajouté!")
+
          this.toastr.success("matiere ajouter  😎")
          this.getLitscours();
-        
+
+
+
+          // this.router.navigate(['/vendeur/gererarticle']);
+           // this.FormGroupart.reset();
+         //   this.toastrService.success('Success!', 'produit a été ajouté!');
+          });
+
         },
         error: (error: HttpErrorResponse) => {
-       this.toastr.error(" erreur!!!!! 😥")
-          
-        }
-               
+       this.toastr.error(" erreur!!!!! 😥") 
+        }       
       });
     }
   
@@ -117,10 +158,6 @@ export class GestioncourComponent implements OnInit {
       }
     }
   
-
-
-    
-     
     getLitMatiereByIdEns()
     {
       const id = Number(localStorage.getItem("userId"));
@@ -151,6 +188,52 @@ export class GestioncourComponent implements OnInit {
       })
     }
 
+
+    onFileInputImage(files: FileList | null): void {
+      // alert("1" + JSON.stringify(files))
+      if (files) {
+        //  alert("2" + JSON.stringify(files))
+        this.image = files.item(0) as File;
+        if (this.image) {
+          const fileReader = new FileReader();
+          fileReader.readAsDataURL(this.image);
+          fileReader.onload = (event) => {
+            if (fileReader.result) {
+              this.imgUrl = fileReader.result;
+            }
+          };
+        }
+      }
+    }
+
+    onFileInput(files: FileList | null): void {
+      // alert("1" + JSON.stringify(files))
+      if (files) {
+        //  alert("2" + JSON.stringify(files))
+        this.file = files.item(0) as File;
+        if (this.file) {
+          const fileReader = new FileReader();
+          fileReader.readAsDataURL(this.file);
+          fileReader.onload = (event) => {
+            if (fileReader.result) {
+              this.fileUrl = fileReader.result;
+            }
+          };
+        }
+      }
+    }
+   
+    changeSourceimage(event: any) {
+      event.target.src = "assets/images/img.jpg";
+    }
+
+    changeSource(event: any) {
+      event.target.src = "assets/images/img.jpg";
+    }
+  
+
+    
+ 
 
 
 

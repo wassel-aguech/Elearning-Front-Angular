@@ -34,6 +34,21 @@ export class CourService {
   // Supprimer une matière par son ID
   deleteCourById(id: number): Observable<void> {
    return this.http.delete<void>(`${this.baseUrl}/delete/${id}`);
-  }}
+  }
+
+
+  // Méthode pour uploader un fichier de cours
+  uploadCoursDtoFile(IdCoursDto: number, image: File , file : File): Observable<Cour> {
+    const formData: FormData = new FormData();
+    formData.append('image', image);
+    formData.append('file', file);
+
+    return this.http.post<Cour>(`${this.baseUrl}/uploadFile/${IdCoursDto}`, formData);
+  }
+
+
+
+
+}
 
 
