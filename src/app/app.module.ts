@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GestionmatiereComponent } from './pageprofesseur/gestionmatiere/gestionmatiere.component';
 import { GestionniveauComponent } from './pageprofesseur/gestionniveau/gestionniveau.component';
 import { GestioncourComponent } from './pageprofesseur/gestioncour/gestioncour.component';
+import { GestiontagComponent } from './pageprofesseur/gestiontag/gestiontag.component';
 
 
 
@@ -32,6 +33,7 @@ import { GestioncourComponent } from './pageprofesseur/gestioncour/gestioncour.c
     GestionmatiereComponent,
     GestionniveauComponent,
     GestioncourComponent,
+    GestiontagComponent,
   
     
     

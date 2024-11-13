@@ -20,16 +20,11 @@ export class GestioncourComponent implements OnInit {
   listcours : Cour [] = [] ;
   viewmodelcour : Cour = new Cour();
   lisMatiereByEns : Matiere [] = [] ;
-  
   listviveau : Niveau [] = [] ;
-
   imgUrl: string | ArrayBuffer = 'assets/images/img.jpg'
   fileUrl: string | ArrayBuffer = 'assets/images/img.jpg'
-
-   id_niveau! : number;
-   id_matiere! : number;
-
-  //| ArrayBuffer = 'assets/img/avatar.png'
+  id_niveau! : number;
+  id_matiere! : number;
   image!: File;
   file!: File;
   submitted = false;
@@ -44,7 +39,6 @@ export class GestioncourComponent implements OnInit {
 
 
   ngOnInit(): void {
-
     this.getLitscours();
     this.getLitMatiereByIdEns();
     this.getListNiveaux();
@@ -53,7 +47,6 @@ export class GestioncourComponent implements OnInit {
 
 
   savecours(): void {
-
       console.log("ahmed", this.image)
       console.log("ali", this.file)
       const id = Number(localStorage.getItem("userId"));
@@ -63,11 +56,8 @@ export class GestioncourComponent implements OnInit {
       this.modelcour.idmatiere = Number(this.id_matiere)
       this.modelcour.idniveau = Number(this.id_niveau)
       this.modelcour.tagid = [0]
-      this.modelcour.sectionid = [0]
-      this.modelcour.estouverte = false
-
-
-      
+      // this.modelcour.sectionid = [0]
+      // this.modelcour.estouverte = false
 
       this.courservice.saveCour(this.modelcour).subscribe({
         next: (response) => {
