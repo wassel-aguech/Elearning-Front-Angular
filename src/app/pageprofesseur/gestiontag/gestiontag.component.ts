@@ -20,8 +20,8 @@ export class GestiontagComponent implements OnInit {
   viewmodelTag : Tag = new Tag();
   listcours : Cour [] = [] ;
   modelcour :Cour = new Cour();
-  selectedValue: string = 'true';
-  id_coure! : number
+  selectedValue: boolean = true;
+  id_cour! : number
 
 
 
@@ -42,7 +42,8 @@ export class GestiontagComponent implements OnInit {
 
 
   savetag(): void {
-     this.modelcour.id = this.id_coure;
+     this.modelTag.idcours = Number(this.id_cour);
+     this.modelTag.deleted = this.selectedValue;
     this.tagservice.saveTag(this.modelTag).subscribe({
         next: (response) => {
          this.toastr.success("matiere ajouter  😎")
