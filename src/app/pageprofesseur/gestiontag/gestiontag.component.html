@@ -15,7 +15,6 @@
             <tr>
                 <th>ID</th>
                 <th>Libelle</th>
-                <th>id cour tag</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -24,7 +23,6 @@
             <tr *ngFor="let tagg of listTag">
                 <td>{{ tagg.id }}</td>
                 <td>{{ tagg.libelle}}</td>
-                <td>{{ tagg.idcours}}</td>
 
                 <button (click)="getbyid(tagg.id)"    class="btn btn-sm btn-success me-2 custom-width"  data-bs-toggle="modal" data-bs-target="#exampleModalmodifier">      
                     Modifier
@@ -64,7 +62,7 @@
                         </div>
                         </div>
 
-                        <div class="col-6">
+                        <!-- <div class="col-6">
                             <div class="form-group">
                                 <label for="trueRadio">
                                 <input type="radio" id="deleted" #deleted="ngModel"  name="deleted" [(ngModel)]="selectedValue" value="true" class="form-check-input m-3">True
@@ -72,18 +70,16 @@
                                 <label for="falseRadio">
                                 <input type="radio" id="deleted" #deleted="ngModel" name="deleted" [(ngModel)]="selectedValue" value="false" class="form-check-input m-3">False
                               </label>
-                            </div>
-                               
-                              
-
-                        </div>
+                            </div> -->
+                                           
+                        <!-- </div> -->
                     </div>
                     <div class="row">
                         <div class="col-offset-4">
-                            <label for="idclasse" class="form-label">Cour ID</label>
+                            <label for="idclasse" class="form-label">Cour Name</label>
                             <select [(ngModel)]="id_cour"  name="id_cour" class="form-control" id="id_cour">
                               <option value="-1" disabled checked>Selectionner</option>
-                              <option *ngFor="let cour of listcours" [value]="cour.id" > {{ cour.id }}</option>
+                              <option *ngFor="let cour of listcours" [value]="cour.id" > {{ cour.titre }}</option>
                             </select>
                         </div>
                     </div>

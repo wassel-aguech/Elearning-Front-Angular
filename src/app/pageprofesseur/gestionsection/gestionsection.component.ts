@@ -1,33 +1,34 @@
-import { Component, OnInit } from '@angular/core';
-import { TagService } from '../../projectService/tag.service';
-import { ToastrService } from 'ngx-toastr';
-import { Tag } from '../../projectModel/tag';
-import Swal from 'sweetalert2';
-import { HttpErrorResponse } from '@angular/common/http';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { SectionService } from '../../projectService/section.service';
+import { Section } from '../../projectModel/section';
+import { HttpErrorResponse } from '@angular/common/http';
+import Swal from 'sweetalert2';
+import { CourseService } from '../../core/services/course.service';
 import { CourService } from '../../projectService/cour.service';
 import { Cour } from '../../projectModel/cour';
 
 @Component({
-  selector: 'app-gestiontag',
-  templateUrl: './gestiontag.component.html',
-  styleUrl: './gestiontag.component.css'
+  selector: 'app-gestionsection',
+  templateUrl: './gestionsection.component.html',
+  styleUrl: './gestionsection.component.css'
 })
-export class GestiontagComponent implements OnInit {
+export class GestionsectionComponent {
 
-  modelTag :Tag = new Tag();
-  listTag : Tag [] = [] ;
-  viewmodelTag : Tag = new Tag();
-  listcours : Cour [] = [] ;
-  modelcour :Cour = new Cour();
-  selectedValue: boolean = true;
-  id_cour! : number
+
+
+  modelSection :Section = new Section();
+  listSection : Section [] = [] ;
+  viewmodelSection : Section = new Section();
+  listcours: Cour[] = [];
+  id_cour! : number;
 
 
 
   constructor( private router:Router,
                private toastr: ToastrService ,
-                private tagservice : TagService ,
+                private sectionservice : SectionService ,
                 private courservice : CourService
               ){}
   
@@ -42,9 +43,9 @@ export class GestiontagComponent implements OnInit {
 
 
   savetag(): void {
-     this.modelTag.idcours = Number(this.id_cour); 
-    // this.modelTag.deleted = this.selectedValue;
-    this.tagservice.saveTag(this.modelTag).subscribe({
+     this.modelSection.idcours = Number(this.id_cour); 
+     console.log(this.modelSection)
+    this.sectionservice.saveSection(this.modelSection).subscribe({
         next: (response) => {
          this.toastr.success("matiere ajouter  😎")
          this.getListTags();
@@ -62,8 +63,8 @@ export class GestiontagComponent implements OnInit {
 
   getListTags()
   {
-    this.tagservice.findAllTags().subscribe(res => {
-      this.listTag = res
+    this.sectionservice.findAllSections().subscribe(res => {
+      this.listSection = res
       console.log(res)
      
     } , error => {
@@ -76,10 +77,10 @@ export class GestiontagComponent implements OnInit {
 
   getbyid(id:number)
   {
-    this.tagservice.findTagById(id).subscribe(res => {
-      this.viewmodelTag = res
+    this.sectionservice.findSectionById(id).subscribe(res => {
+      this.viewmodelSection = res
       console.log(res)
-    } , error => {
+    } , (error: any) => {
         console.error(error)
     } , ()=> {
 
@@ -101,7 +102,7 @@ deletetag(id:number)
       }).then((result : any) => {
         if (result.value) {
          // alert(id);
-          this.tagservice.deleteTagById(id)
+          this.sectionservice.deleteSectionById(id)
           .subscribe(res=>{
             this.getListTags()
           })
@@ -135,31 +136,6 @@ deletetag(id:number)
   
       })
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

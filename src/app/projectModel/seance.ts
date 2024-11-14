@@ -1,7 +1,7 @@
 export class Seance {
-
+    
+public id! : number;
 public titre! : string;
-public urlvideo! : string;
 public idsection! : number;
 
 }

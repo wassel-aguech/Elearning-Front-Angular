@@ -22,6 +22,8 @@ import { GestionmatiereComponent } from './pageprofesseur/gestionmatiere/gestion
 import { GestionniveauComponent } from './pageprofesseur/gestionniveau/gestionniveau.component';
 import { GestioncourComponent } from './pageprofesseur/gestioncour/gestioncour.component';
 import { GestiontagComponent } from './pageprofesseur/gestiontag/gestiontag.component';
+import { GestionsectionComponent } from './pageprofesseur/gestionsection/gestionsection.component';
+import { SeanceComponent } from './pageprofesseur/seance/seance.component';
 
 
 
@@ -34,6 +36,8 @@ import { GestiontagComponent } from './pageprofesseur/gestiontag/gestiontag.comp
     GestionniveauComponent,
     GestioncourComponent,
     GestiontagComponent,
+    GestionsectionComponent,
+    SeanceComponent,
   
     
     

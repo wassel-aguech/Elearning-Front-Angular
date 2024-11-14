@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './features/home/home/home.component';
 import { LoginComponent } from './features/auth/login/login.component';
@@ -25,6 +25,9 @@ import { GestionmatiereComponent } from './pageprofesseur/gestionmatiere/gestion
 import { GestionniveauComponent } from './pageprofesseur/gestionniveau/gestionniveau.component';
 import { GestioncourComponent } from './pageprofesseur/gestioncour/gestioncour.component';
 import { GestiontagComponent } from './pageprofesseur/gestiontag/gestiontag.component';
+import { GestionsectionComponent } from './pageprofesseur/gestionsection/gestionsection.component';
+import path from 'path';
+import { SeanceComponent } from './pageprofesseur/seance/seance.component';
 
 
 
@@ -58,6 +61,10 @@ const routes: Routes = [
 {path:'niveau' , component:GestionniveauComponent},
   {path : 'cour' , component : GestioncourComponent},
   {path : 'tag' , component : GestiontagComponent},
+  {path : 'section' , component : GestionsectionComponent},
+  {path : 'seance' , component : SeanceComponent},
+
+  
 
 
   { path: '**', redirectTo: '' } // Redirection pour les routes non définies

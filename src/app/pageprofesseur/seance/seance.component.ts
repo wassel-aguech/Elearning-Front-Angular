@@ -1,53 +1,57 @@
-import { Component, OnInit } from '@angular/core';
-import { TagService } from '../../projectService/tag.service';
-import { ToastrService } from 'ngx-toastr';
-import { Tag } from '../../projectModel/tag';
+import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
-import { HttpErrorResponse } from '@angular/common/http';
+import { Seance } from '../../projectModel/seance';
+import { Section } from '../../projectModel/section';
 import { Router } from '@angular/router';
-import { CourService } from '../../projectService/cour.service';
-import { Cour } from '../../projectModel/cour';
+import { ToastrService } from 'ngx-toastr';
+import { SeanceService } from '../../projectService/seance.service';
+import { SectionService } from '../../projectService/section.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
-  selector: 'app-gestiontag',
-  templateUrl: './gestiontag.component.html',
-  styleUrl: './gestiontag.component.css'
+  selector: 'app-seance',
+  templateUrl: './seance.component.html',
+  styleUrl: './seance.component.css'
 })
-export class GestiontagComponent implements OnInit {
+export class SeanceComponent {
 
-  modelTag :Tag = new Tag();
-  listTag : Tag [] = [] ;
-  viewmodelTag : Tag = new Tag();
-  listcours : Cour [] = [] ;
-  modelcour :Cour = new Cour();
-  selectedValue: boolean = true;
-  id_cour! : number
+
+  modelSeance :Seance = new Seance();
+  listSeance : Seance [] = [] ;
+  viewmodelSeance : Seance = new Seance();
+  listsection: Section[] = [];
+  id_section! : number;
 
 
 
   constructor( private router:Router,
                private toastr: ToastrService ,
-                private tagservice : TagService ,
-                private courservice : CourService
+                private Seanceservice : SeanceService ,
+                private sectionservice : SectionService
               ){}
   
   
   
   ngOnInit(): void {
-    this.getListTags();
-    this.getLitscours();
+    this.getListseance();
+    this.getLitsection()
+    
 
   }
 
 
 
   savetag(): void {
-     this.modelTag.idcours = Number(this.id_cour); 
-    // this.modelTag.deleted = this.selectedValue;
-    this.tagservice.saveTag(this.modelTag).subscribe({
+    this.modelSeance.idsection = Number(this.id_section); 
+     console.log(this.id_section)
+
+
+     this.Seanceservice.saveSeance(this.modelSeance).subscribe({
+      
         next: (response) => {
+
          this.toastr.success("matiere ajouter  😎")
-         this.getListTags();
+         this.getLitsection();
          console.log(response)
         },
         error: (error: HttpErrorResponse) => {
@@ -60,10 +64,10 @@ export class GestiontagComponent implements OnInit {
 
 
 
-  getListTags()
+    getListseance()
   {
-    this.tagservice.findAllTags().subscribe(res => {
-      this.listTag = res
+    this.Seanceservice.findAllSeances().subscribe(res => {
+      this.listSeance = res
       console.log(res)
      
     } , error => {
@@ -76,10 +80,10 @@ export class GestiontagComponent implements OnInit {
 
   getbyid(id:number)
   {
-    this.tagservice.findTagById(id).subscribe(res => {
-      this.viewmodelTag = res
+    this.Seanceservice.findSeanceById(id).subscribe(res => {
+      this.viewmodelSeance = res
       console.log(res)
-    } , error => {
+    } , (error: any) => {
         console.error(error)
     } , ()=> {
 
@@ -101,9 +105,9 @@ deletetag(id:number)
       }).then((result : any) => {
         if (result.value) {
          // alert(id);
-          this.tagservice.deleteTagById(id)
+          this.Seanceservice.deleteSeanceById(id)
           .subscribe(res=>{
-            this.getListTags()
+            this.getLitsection()
           })
         Swal.fire(
           'Supprimé!',
@@ -123,10 +127,12 @@ deletetag(id:number)
   }
 
 
-  getLitscours()
+
+
+  getLitsection()
     {
-      this.courservice.findAllCours().subscribe(res => {
-        this.listcours = res
+      this.sectionservice.findAllSections().subscribe(res => {
+        this.listsection = res
         console.log(res)
        
       } , error => {
@@ -135,31 +141,4 @@ deletetag(id:number)
   
       })
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

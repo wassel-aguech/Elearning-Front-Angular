@@ -1,0 +1,86 @@
+<div class="container mt-5">
+   
+    <h2 class="mb-4 text-center text-primary" style="font-size: 2em">Liste des SEANCE</h2>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Ajouter seance
+      </button>
+      <br>
+
+      <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>TITRE</th>
+                <th>DISCRIPTION</th>
+            </tr>
+        </thead>
+        <tbody>
+         
+            <tr *ngFor="let sec of listSeance">
+                <td>{{ sec.id }}</td>
+                <td>{{ sec.titre}}</td>
+                <td> {{sec.idsection}}</td>
+               
+
+
+                <button (click)="getbyid(sec.id)"    class="btn btn-sm btn-success me-2 custom-width"  data-bs-toggle="modal" data-bs-target="#exampleModalmodifier">      
+                    Modifier
+                  </button >
+                  <button (click)="deletetag(sec.id)"  class="btn btn-sm btn-danger me-2 custom-width">
+                  Supprimer 
+                  </button >
+                 
+               
+            </tr>
+        </tbody>
+    </table>
+
+
+     
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"> TAGS </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+           
+                <form  #form="ngForm">
+                    <div class="form-row">
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label for="email"> titre </label>
+                            <input type="text" class="form-control" #titre="ngModel" id="titre" name="titre" [(ngModel)]="modelSeance.titre" required
+                            [ngClass]="{'is-valid': titre.valid && titre.touched,'is-invalid': titre.invalid && titre.touched }" />
+                            <div *ngIf="titre.invalid && titre.touched" class="invalid-feedback" >
+                                titre est requis.
+                            </div>
+                        </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-offset-4">
+                            <label for="idclasse" class="form-label">section Name</label>
+                            <select  [(ngModel)]="id_section"  name="id_section" class="form-control" id="id_section" >
+                              <option value="-1" disabled checked>Selectionner</option>
+                              <option *ngFor="let sect of listsection" [value]="sect.id" > {{ sect.titre }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button  [disabled]="!form.valid" (click)="savetag()"  type="button" class="btn btn-primary">ADD TAG</button>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+   
+   </div>
