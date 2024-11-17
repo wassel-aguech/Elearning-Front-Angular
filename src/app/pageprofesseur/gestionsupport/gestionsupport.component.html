@@ -1,0 +1,110 @@
+<div class="container mt-5">
+   
+    <h2 class="mb-4 text-center text-primary" style="font-size: 2em">Liste des SUPPORT</h2>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Ajouter Support
+      </button>
+      <br>
+
+      <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>ORDRE</th>
+                <th>URLSUPPOrt</th>
+            </tr>
+        </thead>
+        <tbody>
+         
+            <tr *ngFor="let sup of listSupport">
+                <td>{{ sup.id }}</td>
+                <td>{{ sup.name}}</td>
+                <td> {{sup.ordre}}</td>
+                <th>{{sup.urlSupport}}</th>
+               
+                <button (click)="getbyid(sup.id)"    class="btn btn-sm btn-success me-2 custom-width"  data-bs-toggle="modal" data-bs-target="#exampleModalmodifier">      
+                    Modifier
+                  </button >
+                  <button (click)="deletesupport(sup.id)"  class="btn btn-sm btn-danger me-2 custom-width">
+                  Supprimer 
+                  </button > 
+            </tr>
+        </tbody>
+    </table>
+
+
+     
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"> SUPPORTS </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+           
+                <form  #form="ngForm">
+                    <div class="form-row">
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label for="email"> NAME </label>
+                            <input type="text" class="form-control" #name="ngModel" id="name" name="name" [(ngModel)]="modelSupport.name" required
+                            [ngClass]="{'is-valid': name.valid && name.touched,'is-invalid': name.invalid && name.touched }" />
+                            <div *ngIf="name.invalid && name.touched" class="invalid-feedback" >
+                                name est requis.
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label for="email"> ORDRE </label>
+                            <input type="text" class="form-control" #ordre="ngModel" id="ordre" name="ordre" [(ngModel)]="modelSupport.ordre" required
+                            [ngClass]="{'is-valid': ordre.valid && ordre.touched,'is-invalid': ordre.invalid && ordre.touched }" />
+                            <div *ngIf="ordre.invalid && ordre.touched" class="invalid-feedback" >
+                                ordre est requis.
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-offset-4">
+                            <label for="idclasse" class="form-label">seance Name</label>
+                            <select  [(ngModel)]="id_seance"  name="id_seance" class="form-control" id="id_seance" >
+                              <option value="-1" disabled checked>Selectionner</option>
+                              <option *ngFor="let seo of listseance" [value]="seo.id" > {{ seo.titre }}</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group row mb-3 justify-content-center">
+                              <button (click)="fileInput.click()" style="background-color: transparent; border: none;">
+                                  <img (error)="changeSource($event)" [src]="fileUrl" class="rounded-circle" width="100px" height="100px" />
+                                  <input hidden type="file" #fileInput (change)="onFileInput(fileInput.files)"  [(ngModel)]="modelSupport.urlSupport" name="urlSupport">
+                              </button>
+                          </div>
+                    </div>
+                    </div>
+
+
+                </form>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button  [disabled]="!form.valid" (click)="savesupport()"  type="button" class="btn btn-primary">ADD SUPPORT</button>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+   
+   </div>

@@ -24,6 +24,7 @@ import { GestioncourComponent } from './pageprofesseur/gestioncour/gestioncour.c
 import { GestiontagComponent } from './pageprofesseur/gestiontag/gestiontag.component';
 import { GestionsectionComponent } from './pageprofesseur/gestionsection/gestionsection.component';
 import { SeanceComponent } from './pageprofesseur/seance/seance.component';
+import { GestionsupportComponent } from './pageprofesseur/gestionsupport/gestionsupport.component';
 
 
 
@@ -38,6 +39,7 @@ import { SeanceComponent } from './pageprofesseur/seance/seance.component';
     GestiontagComponent,
     GestionsectionComponent,
     SeanceComponent,
+    GestionsupportComponent,
   
     
     

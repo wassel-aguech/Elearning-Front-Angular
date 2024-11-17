@@ -1,10 +1,10 @@
 export class Support {
-   public deleted! : boolean;
+
+   public id! : number;
    public ordre! : number;
    public name! : string;
-   public paragraph! : string;
+   public urlSupport! : string;
    public idseance! : number;
 
 }
-
 

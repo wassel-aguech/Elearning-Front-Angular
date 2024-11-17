@@ -28,6 +28,7 @@ import { GestiontagComponent } from './pageprofesseur/gestiontag/gestiontag.comp
 import { GestionsectionComponent } from './pageprofesseur/gestionsection/gestionsection.component';
 import path from 'path';
 import { SeanceComponent } from './pageprofesseur/seance/seance.component';
+import { GestionsupportComponent } from './pageprofesseur/gestionsupport/gestionsupport.component';
 
 
 
@@ -63,6 +64,8 @@ const routes: Routes = [
   {path : 'tag' , component : GestiontagComponent},
   {path : 'section' , component : GestionsectionComponent},
   {path : 'seance' , component : SeanceComponent},
+  {path : 'support' , component : GestionsupportComponent},
+
 
   
 
